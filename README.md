@@ -85,16 +85,16 @@ EXERCISE <br />
 
 
 # Component Hierarchy
-LoginPage
--> LoginForm
-Dashboard
--> JournalEntry
-   -> Food
-   -> Exercise
-   -> Total
-   -> NewEntry
-   -> UpdateJournal
--> Stats
-   -> UpdateStats
+LoginPage <br />
+-> LoginForm <br />
+Dashboard <br />
+-> JournalEntry <br />
+   -> Food <br />
+   -> Exercise <br />
+   -> Total <br />
+   -> NewEntry <br />
+   -> UpdateJournal <br />
+-> Stats <br />
+   -> UpdateStats <br />
  
 Dependencies- none
