@@ -6,6 +6,7 @@ const sequelize = new Sequelize({
   operatorsAliases: false,
   define: {
     underscored: true,
+  }
 });
 
 
