@@ -1,9 +1,17 @@
 import React from 'react';
+import Food from '../Food/Food';
+import Exercise from '../Exercise/Exercise';
 
 class JournalEntry extends React.Component{
   render(){
     return(
-      <h1>This is your journal entry</h1>
+      <div className='journal-entry'>
+        <h1>Date</h1>
+        <Food />
+        <Exercise />
+        <h3>Total:</h3>
+      </div>
+      
     )
   }
 }
