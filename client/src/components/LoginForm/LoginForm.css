@@ -1,9 +1,45 @@
 .login-form{
   display: flex;
   flex-direction: column;
-  width: 300px
+  width: 500px;
+  height: 400px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 16px -3px #777;
+  align-items: center;
 }
+
 
 .login-btn{
   width: 200px;
+  background-image:
+    linear-gradient(
+      to right, 
+      #4AC29A, rgb(121, 204, 189)
+    );
+  color: white;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 15px;
+  border: none;
+  margin-top: 40px;
+}
+
+.login-btn:hover{
+  background-image:
+    linear-gradient(
+      to right, 
+      red, #f06d06
+    );
+  transform: scale(1.2)
+}
+
+.username{
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.password{
+  margin-top: 20px;
+  font-size: 20px;
 }

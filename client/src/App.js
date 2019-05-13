@@ -25,7 +25,7 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <h1>BestLife</h1>
+        <h1 className='best-life'>BestLife</h1>
         { !this.state.signedIn && <LoginForm signIn = {this.handleSignIn} />}
         { this.state.signedIn && <Dashboard/>}
 
