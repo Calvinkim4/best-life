@@ -8,13 +8,13 @@ Since there can be many functionality that can be added, we are going to focus o
  
 # MVP
 Login/registration <br />
-Model- user’s username/email and password. create/update/delete? user <br />
+Model- user’s username/email and password. create/update user <br />
 View- login and registration form <br />
 Controller- post username and password <br />
 
 User statistics/goals <br />
-Model- user’s weight. create/read/update weight <br />
-View- login and registration form <br />
+Model- user’s current weight and goal weight. create/read/update weights <br />
+View- user stats <br />
 Controller- get/post/update weight <br />
  
 User total daily intake <br />
@@ -34,48 +34,50 @@ USER <br />
 {  <br />
   "id": 1,  <br />
   "username/email": "JohnSmith256346@fakemail.com", <br />
- "password": "ertekjegt533*", <br />
-  "created_by": 0, <br />
-  "created_at": "2018-12-14T15:37:11.578Z", <br />
-  "updated_at": "2018-12-14T15:37:12.563Z", <br />
-}
-
-User Summary <br />
-{  <br />
-  "id": 1,  <br />
+  "password": "ertekjegt533*", <br />
   "current_weight": 210, <br />
   "goal_weight": 180, <br />
   "calorie_limit": 1700, <br />
   "created_by": 0, <br />
   "created_at": "2018-12-14T15:37:11.578Z", <br />
   "updated_at": "2018-12-14T15:37:12.563Z", <br />
-  "user_id: 1"
 }
+
  
-DAILY_CALORIE_INTAKE <br />
+ENTRY <br />
 { <br />
   "id": 1, <br />
   "total_amount": 1600, <br />
- "date": "2018-12-14", <br />
-"weight": 190, <br />
+  "date": "2018-12-14", <br />
   "created_by": 0, <br />
   "created_at": "2018-12-14T15:37:11.578Z", <br />
   "updated_at": "2018-12-14T15:37:12.563Z", <br />
   "user": 1 <br />
 }
  
-ENTRY <br />
+FOOD <br />
 { <br />
   "id": 1, <br />
- "type": "banana", <br />
-"calorie_amount": 100, <br />
+  "type": "banana", <br />
+  "calorie_amount": 100, <br />
   "created_by": 0, <br />
   "created_at": "2018-12-14T15:37:11.578Z", <br />
   "updated_at": "2018-12-14T15:37:12.563Z", <br />
   "daily_calorie_intake": 1 <br />
 }
 
-![alt text](wireframes/eod.png "eod")
+EXERCISE <br />
+{ <br />
+  "id": 1, <br />
+  "type": "push-ups", <br />
+  "calorie_amount": 100, <br />
+  "created_by": 0, <br />
+  "created_at": "2018-12-14T15:37:11.578Z", <br />
+  "updated_at": "2018-12-14T15:37:12.563Z", <br />
+  "daily_calorie_intake": 1 <br />
+}
+
+![alt text](wireframes/erd.png "erd")
 
 ![alt text](wireframes/login.png "login")
 ![alt text](wireframes/stats.png "stats")
