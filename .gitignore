@@ -1,0 +1,4 @@
+node_modules/
+
+/resetDb.js
+/seed.js
