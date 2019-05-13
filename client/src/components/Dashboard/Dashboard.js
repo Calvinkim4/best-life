@@ -1,9 +1,15 @@
 import React from 'react';
+import JournalEntry from '../JournalEntry/JournalEntry'
+import Stats from '../Stats/Stats'
 
 class Dashboard extends React.Component{
   render(){
     return(
-      <h1> Welcome User!</h1>
+      <div className='dashboard'> 
+      <h1> Dashboard</h1>
+      <JournalEntry />
+      <Stats />
+      </div>
     )
   }
 }
