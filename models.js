@@ -5,7 +5,7 @@ const sequelize = new Sequelize({
   dialect: 'postgres',
   operatorsAliases: false,
   define: {
-    underscored: true, 
+    underscored: true,
 });
 
 
