@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
-const { userRouter } = require('./routes/sserRouter');
+const { userRouter } = require('./routes/userRouter');
 const { entriesRouter } = require('./routes/entriesRouter');
 const { foodRouter } = require('./routes/foodRouter');
 const { exerciseRouter } = require('./routes/exerciseRouter');
@@ -18,11 +18,11 @@ app.use(cors());
 
 app.use('/user', userRouter);
 
-app.use('/entries', entriesRouter);
+// app.use('/entries', entriesRouter);
 
-app.use('/food', foodRouter);
+// app.use('/food', foodRouter);
 
-app.use('/exercise', exerciseRouter);
+// app.use('/exercise', exerciseRouter);
 
 
 app.listen(PORT, () => {

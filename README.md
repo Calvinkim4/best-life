@@ -97,5 +97,5 @@ Dashboard <br />
 -> Stats <br />
    -> UpdateStats <br />
  
-Dependencies- backEnd: Morgan, express, pg, bodyParser, Cors, Sequelize, nodemon <br />
- frontEnd: axios, react, react-router-dom, react-dom, react-scripts. <br />
+Dependencies- backEnd: morgan, express, pg, body-parser, cors, sequelize, nodemon <br />
+ frontEnd: axios, react, react-router-dom, react-dom, react-scripts <br />
