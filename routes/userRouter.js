@@ -12,4 +12,14 @@ userRouter.get('/:id', async (request, response) => {
   }
 });
 
+userRouter.post('/', async (request, response) => {
+    try {
+        const user = await User.create(request.body);
+        response.send(user);
+    }
+    catch (e) {
+        console.log(e.message);
+      }
+})
+
 module.exports = { userRouter };
