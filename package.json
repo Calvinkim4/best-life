@@ -4,7 +4,8 @@
   "description": "# Project Description -A fitness application to show the users daily calorie intake and log food eaten and weight lost/gained Since there can be many functionality that can be added, we are going to focus on mvp using the moscow method.  <br /> -Mvp- the ability for users to sign in and log their daily calorie intake every time they eat or exercise and to see their progress.  <br /> -Pmvp- individual users can add certain foods to the database so other users don’t have to find out what foods have certain amount of calories <br />",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
