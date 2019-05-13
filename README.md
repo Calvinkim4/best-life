@@ -97,4 +97,4 @@ Dashboard <br />
 -> Stats <br />
    -> UpdateStats <br />
  
-Dependencies- none
+Dependencies- Morgan, PG, Sequelize, Cors, bodyParsers, nodemon, express. 
