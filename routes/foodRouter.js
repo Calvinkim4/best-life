@@ -45,3 +45,28 @@ foodRouter.put('/:id', async (request, response) => {
     });
   }
 })
+
+// delete food entry
+
+foodRouter.delete('/:id', async (request, response) => {
+  try {
+    const id = request.params.id
+
+    await Food.destroy({
+      where: {
+        id: id
+      }
+    })
+
+    response.json({
+      message: `Restaurant with id ${id} deleted`
+    })
+  } catch (e) {
+    response.json({ msg: e.message })
+  }
+});
+
+
+module.exports = {
+  foodRouter
+}
