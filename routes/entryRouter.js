@@ -1,6 +1,8 @@
 const express = require('express');
 const entryRouter = express.Router();
 
+const { foodRouter } = require('./foodRouter');
+
 const { User, Entry } = require('../models');
 
 entryRouter.get('/', async (request, response) => {
@@ -29,5 +31,9 @@ entryRouter.post('/', async (request, response) => {
     }
   });
 
+  entryRouter.use('/:id/food', (request, response, next) => {
+    request.entryId = request.params.id;
+    next()
+  }, foodRouter);
 
 module.exports = { entryRouter };
