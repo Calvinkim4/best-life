@@ -18,27 +18,36 @@ const User = sequelize.define('user', {
   calorie_intake: Sequelize.INTEGER
 });
 
+const Entry = sequelize.define('entry', {
+  total_amount: Sequelize.INTEGER,
+  date: Sequelize.DATE
+})
+
+
 const Food = sequelize.define('food', {
   name: Sequelize.STRING,
-  total_calories: Sequelize.INTEGER,
-  date: Sequelize.DATE,
+  total_calories: Sequelize.INTEGER
 });
 
-const Excercise = sequelize.define('excercise', {
+const Exercise = sequelize.define('exercise', {
   name: Sequelize.STRING,
-  total_calories: Sequelize.INTEGER,
-  date: Sequelize.DATE
+  total_calories: Sequelize.INTEGER
 });
 
-User.hasMany(Food, {onDelete: 'cascade'});
-User.hasMany(Excercise, {onDelete: 'cascade'});
-Food.belongsTo(User);
-Excercise.belongsTo(User);
+
+Exercise.belongsTo(Entry);
+Entry.belongsTo(User);
+Food.belongsTo(Entry);
+User.hasMany(Entry, {onDelete: 'cascade'});
+Entry.hasMany(Food, {onDelete: 'cascade'});
+Entry.hasMany(Exercise, {onDelete:'cascade'});
+
 
 
 module.exports = {
   sequelize,
   User,
+  Entry,
   Food,
-  Excercise
+  Exercise
 };
