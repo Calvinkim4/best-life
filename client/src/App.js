@@ -6,7 +6,7 @@ import { Router } from 'react-router-dom';
 //components
 import LoginForm from './components/LoginForm/LoginForm';
 import Dashboard from './components/Dashboard/Dashboard'
-  import RegisterPage from './components/RegisterPage/RegisterPage';
+import RegisterPage from './components/RegisterPage/RegisterPage';
 
 
 
@@ -33,7 +33,7 @@ class App extends React.Component {
       </div>
     );
   }
-  
+
 }
 
 export default App;

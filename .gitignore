@@ -1,5 +1,4 @@
 node_modules/
 
-/resetDb.js
-/seed.js
+
 client/node_modules
