@@ -8,7 +8,7 @@ const { User, Entry } = require('../models');
 
 entryRouter.get('/', async (request, response) => {
   try {
-    let userId = request.userId; 
+    let userId = request.userId;
     const entry = await Entry.findAll({
         where: {
             user_id: userId
@@ -53,7 +53,7 @@ entryRouter.get('/date/:date', async (request, response) => {
 entryRouter.post('/:id', async (request, response) => {
     try {
       const entry = await Entry.create(request.body);
-      let userId = request.userId; 
+      let userId = request.userId;
       const user = await User.findByPk(userId);
       await entry.setUser(user);
       response.send(entry);
@@ -82,10 +82,10 @@ entryRouter.post('/:id', async (request, response) => {
     }
   })
 
-//   entryRouter.use('/:id/food', (request, response, next) => {
-//     request.entryId = request.params.id;
-//     next()
-//   }, foodRouter);
+  entryRouter.use('/:id/food', (request, response, next) => {
+    request.entryId = request.params.id;
+    next()
+  }, foodRouter);
 
   entryRouter.use('/:id/exercise', (request, response, next) => {
     request.entryId = request.params.id;

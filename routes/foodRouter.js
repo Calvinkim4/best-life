@@ -3,16 +3,32 @@ const { Food } = require('../models')
 const foodRouter = express.Router();
 
 // all foods with entry id
-foodRouter.get('/:id', async (request, response) =>
+foodRouter.get('/', async (request, response) =>
 {
   try {
-    const id = request.params.id;
+    const id = request.entryId;
     const food = await Food.findAll({
       where: {
         entry_id: id,
       }
     });
-    response.json({food})
+    response.send({food})
+  } catch (e) {
+    response.status(500).json({ msg: e.message })
+  }
+})
+
+foodRouter.get('/:id', async (request, response) =>
+{
+  try {
+    const id = request.entryId;
+    const food = await Food.findAll({
+      where: {
+        entry_id: id,
+        id: request.params.id
+      }
+    });
+    response.send({food})
   } catch (e) {
     response.status(500).json({ msg: e.message })
   }
@@ -21,51 +37,42 @@ foodRouter.get('/:id', async (request, response) =>
 // create food entry
 foodRouter.post('/', async (request, response) => {
   try {
-    const createFood = await Food.create(request.body)
-    response.json({
-      createFood
-    })
+    const createFood = await Food.create(request.body);
+    let entryId = request.entryId;
+    const entry = await Entry.findByPK(entryId);
+    await createFood.setEntry(entry);
+    response.send(createFood);
   } catch (e) {
-    response.status(500).json({ msg: e.message })
+    console.log(e.message);
   }
-})
+});
+
+
 //update food entry
+
+
 foodRouter.put('/:id', async (request, response) => {
   try {
-    const id = request.params.id;
-    const updateFood = await Food.findByPk(id);
-
-    if (updateFood) await updateFood.update(request.body);
-    response.json({
-      updateFood
-    });
+    const findFood = await Food.findByPk(request.params.id);
+    if (findFood) await findFood.update(request.body);
+    response.send({findFood});
   } catch(e) {
-    response.status(304).json({
-      message: e.message
-    });
+    console.log(e.message);
   }
 })
 
 // delete food entry
 
+
 foodRouter.delete('/:id', async (request, response) => {
   try {
-    const id = request.params.id
-
-    await Food.destroy({
-      where: {
-        id: id
-      }
-    })
-
-    response.json({
-      message: `Restaurant with id ${id} deleted`
-    })
-  } catch (e) {
-    response.json({ msg: e.message })
+    const foodId = await Food.findByPk(request.params.id);
+    await foodId.destroy();
+    response.send(foodId);
+  } catch(e) {
+    console.log(e.message);
   }
-});
-
+})
 
 module.exports = {
   foodRouter
