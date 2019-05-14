@@ -10,14 +10,20 @@ class Dashboard extends React.Component{
       addEntry: false
     }
   }
+
+  handleNewEntry = () =>{
+    this.setState({
+      addEntry: true
+    })
+  }
   render(){
     return(
       <div className='dashboard'> 
         <h1> Dashboard</h1>
         <div className='content-container'>
           <Stats />
-          <JournalEntry />
-          <button className='new-entry-btn'>+</button>
+          <JournalEntry addEntry = {this.props.addEntry}/>
+          <button className='new-entry-btn' onClick={this.handleNewEntry}>+</button>
         </div>
       </div>
     )
