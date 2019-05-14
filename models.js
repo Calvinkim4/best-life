@@ -20,7 +20,7 @@ const User = sequelize.define('user', {
 
 const Entry = sequelize.define('entry', {
   total_amount: Sequelize.INTEGER,
-  date: Sequelize.DATE
+  date: Sequelize.DATEONLY
 })
 
 
