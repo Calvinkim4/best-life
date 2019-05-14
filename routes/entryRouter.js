@@ -2,6 +2,7 @@ const express = require('express');
 const entryRouter = express.Router();
 
 const { foodRouter } = require('./foodRouter');
+const { exerciseRouter } = require('./exerciseRouter');
 
 const { User, Entry } = require('../models');
 
@@ -31,9 +32,14 @@ entryRouter.post('/', async (request, response) => {
     }
   });
 
-  entryRouter.use('/:id/food', (request, response, next) => {
+//   entryRouter.use('/:id/food', (request, response, next) => {
+//     request.entryId = request.params.id;
+//     next()
+//   }, foodRouter);
+
+  entryRouter.use('/:id/exercise', (request, response, next) => {
     request.entryId = request.params.id;
     next()
-  }, foodRouter);
+  }, exerciseRouter);
 
 module.exports = { entryRouter };
