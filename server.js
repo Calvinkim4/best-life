@@ -17,11 +17,6 @@ app.use(cors());
 
 app.use('/user', userRouter);
 
-// app.use('/food', foodRouter);
-
-// app.use('/exercise', exerciseRouter);
-
-
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });

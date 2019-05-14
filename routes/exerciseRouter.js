@@ -44,6 +44,16 @@ exerciseRouter.post('/', async (request, response) => {
     }
   });
 
+  exerciseRouter.put('/:id', async (request, response) => {
+    try {
+      const exercise = await Exercise.findByPk(request.params.id);
+      if (exercise) await exercise.update(request.body);
+      response.send({exercise});
+    } catch(e) {
+      console.log(e.message);
+    }
+  })
+
   exerciseRouter.delete('/:id', async (request, response) => {
     try {
       const exercise = await Exercise.findByPk(request.params.id);
