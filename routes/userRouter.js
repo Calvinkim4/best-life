@@ -1,8 +1,11 @@
 const express = require('express');
 const userRouter = express.Router();
 const { entryRouter } = require('./entryRouter');
+const bodyParser = require('body-parser');
 
 const { User } = require('../models');
+
+userRouter.use(bodyParser.json());
 
 userRouter.get('/:id', async (request, response) => {
   try {
