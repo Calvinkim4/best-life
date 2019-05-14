@@ -17,6 +17,21 @@ exerciseRouter.get('/', async (request, response) => {
   }
 });
 
+exerciseRouter.get('/:id', async (request, response) => {
+    try {
+      let entryId = request.entryId; 
+      const exercise = await Exercise.findOne({
+          where: {
+              entry_id: entryId,
+              id: request.params.id
+          }
+      });
+      response.send(exercise);
+    } catch (e) {
+      console.log(e.message);
+    }
+  });
+
 exerciseRouter.post('/', async (request, response) => {
     try {
       const exercise = await Exercise.create(request.body);
