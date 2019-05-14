@@ -8,7 +8,7 @@ const { User, Entry } = require('../models');
 
 entryRouter.get('/', async (request, response) => {
   try {
-    let userId = request.userId; 
+    let userId = request.userId;
     const entry = await Entry.findAll({
         where: {
             user_id: userId
@@ -20,10 +20,40 @@ entryRouter.get('/', async (request, response) => {
   }
 });
 
-entryRouter.post('/', async (request, response) => {
+entryRouter.get('/:id', async (request, response) => {
+  try {
+    let userId = request.userId; 
+    const entry = await Entry.findOne({
+        where: {
+            user_id: userId,
+            id: request.params.id
+        }
+    });
+    response.send(entry);
+  } catch (e) {
+    console.log(e.message);
+  }
+});
+
+entryRouter.get('/date/:date', async (request, response) => {
+  try {
+    let userId = request.userId; 
+    const entry = await Entry.findOne({
+        where: {
+            user_id: userId,
+            date: request.params.date
+        }
+    });
+    response.send(entry);
+  } catch (e) {
+    console.log(e.message);
+  }
+});
+
+entryRouter.post('/:id', async (request, response) => {
     try {
       const entry = await Entry.create(request.body);
-      let userId = request.userId; 
+      let userId = request.userId;
       const user = await User.findByPk(userId);
       await entry.setUser(user);
       response.send(entry);
@@ -32,10 +62,30 @@ entryRouter.post('/', async (request, response) => {
     }
   });
 
-//   entryRouter.use('/:id/food', (request, response, next) => {
-//     request.entryId = request.params.id;
-//     next()
-//   }, foodRouter);
+  entryRouter.put('/:id', async (request, response) => {
+    try {
+      const entry = await Entry.findByPk(request.params.id);
+      if (entry) await entry.update(request.body);
+      response.send({entry});
+    } catch(e) {
+      console.log(e.message);
+    }
+  })
+
+  entryRouter.delete('/:id', async (request, response) => {
+    try {
+      const entry = await Entry.findByPk(request.params.id);
+      await entry.destroy();
+      response.send(entry);
+    } catch(e) {
+      console.log(e.message);
+    }
+  })
+
+  entryRouter.use('/:id/food', (request, response, next) => {
+    request.entryId = request.params.id;
+    next()
+  }, foodRouter);
 
   entryRouter.use('/:id/exercise', (request, response, next) => {
     request.entryId = request.params.id;
