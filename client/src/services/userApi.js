@@ -15,3 +15,12 @@ export const createUser = async (data) => {
   }
 }
   
+// export const getUser = async (data) => {
+//   try {
+//     const response = await api.post('/user/', data);
+//     return response.data.user;
+//   } catch (e) {
+//     console.log(e.message)
+//   }
+// }
+  
