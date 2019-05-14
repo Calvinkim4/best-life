@@ -34,6 +34,7 @@ foodRouter.post('/', async (request, response) => {
 
 //update food entry
 
+
 foodRouter.put('/:id', async (request, response) => {
   try {
     const findFood = await Food.findByPk(request.params.id);
