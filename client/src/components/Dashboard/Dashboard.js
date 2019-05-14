@@ -4,6 +4,12 @@ import Stats from '../Stats/Stats'
 import './Dashboard.css'
 
 class Dashboard extends React.Component{
+  constructor(){
+    super();
+    this.state={
+      addEntry: false
+    }
+  }
   render(){
     return(
       <div className='dashboard'> 
@@ -11,6 +17,7 @@ class Dashboard extends React.Component{
         <div className='content-container'>
           <Stats />
           <JournalEntry />
+          <button className='new-entry-btn'>+</button>
         </div>
       </div>
     )

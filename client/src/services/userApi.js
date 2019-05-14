@@ -6,6 +6,7 @@ const api = axios.create({
     baseURL: `${URL}`
   })
 
+//register user
 export const createUser = async (data) => {
   try {
     const response = await api.post('/user', data);
@@ -14,4 +15,8 @@ export const createUser = async (data) => {
     console.log(e.message)
   }
 }
+
+//login user
+
+
   
