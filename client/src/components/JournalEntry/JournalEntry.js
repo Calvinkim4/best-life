@@ -1,18 +1,44 @@
 import React from 'react';
 import Food from '../Food/Food';
 import Exercise from '../Exercise/Exercise';
-import './JournalEntry.css'
+
+import { getAllEntries, createEntry } from '../../services/entryApi';
+
+import './JournalEntry.css';
 
 class JournalEntry extends React.Component{
+  constructor(){
+    super();
+    this.state = {
+      entries: [],
+    }
+  }
+
+// hardcoded user id
+  async componentDidMount() {
+    this.setState({
+      entries: await getAllEntries(1)
+    });
+  }
+
   render(){
-    return(
-      <div className='journal-entry'>
-        <h1>Date</h1>
-        <div className='entry-container'>
-        <Food />
-        <Exercise />
+
+    const allEntries = this.state.entries ? this.state.entries.map(entry => {
+      return (
+        <div className='journal-entry'>
+          <h1>{entry.date}</h1>
+          <div className='entry-container'>
+          <Food />
+          <Exercise />
+          </div>
+          <h3>{entry.total_amount}</h3>
         </div>
-        <h3>Total:</h3>
+      )
+    }): null;
+
+    return(
+      <div>
+        {allEntries}
       </div>
     )
   }
