@@ -4,6 +4,12 @@ import Exercise from '../Exercise/Exercise';
 import './JournalEntry.css'
 
 class JournalEntry extends React.Component{
+  constructor {
+    super();
+    this.state = {
+      
+    }
+  }
   render(){
     return(
       <div className='journal-entry'>

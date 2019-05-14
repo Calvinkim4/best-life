@@ -2,6 +2,13 @@ import React from 'react';
 import './Food.css'
 
 class Food extends React.Component{
+  constructor{
+    super():
+    this.state={
+      food: [],
+    }
+  }
+
   render(){
     return(
       <div className='food'>

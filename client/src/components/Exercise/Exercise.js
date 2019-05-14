@@ -2,6 +2,12 @@ import React from 'react'
 import './Exercise.css'
 
 class Exercise extends React.Component{
+  constructor{
+    super()
+      this.state = {
+        
+      }
+  }
   render(){
     return(
       <div className='exercise'>

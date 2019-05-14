@@ -2,15 +2,21 @@ import React from 'react';
 import './LoginForm.css'
 
 class LoginForm extends React.Component{
+  constructor {
+    super();
+    this.state = {
+      
+    }
+  }
   render(){
     return(
       <form className='login-form' onSubmit={this.props.signIn}>
         <label className='username' htmlFor='username'>
-          Username: 
+          Username:
           <input className='username'type='text' name='username' />
         </label>
         <label className='password'htmlFor='password'>
-          Password: 
+          Password:
           <input className='password'type='password' name='password' />
         </label>
         <button className='login-btn'type='submit'>Login</button>

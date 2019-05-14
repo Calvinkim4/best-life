@@ -2,17 +2,23 @@ import React from 'react';
 import './NewJournalEntry.css'
 
 class NewJournalEntry extends React.Component{
+  constructor {
+    super();
+    this.state = {
+      
+    }
+  }
   render(){
     return(
       <div className='modal-container'>
         <form className='new-entry-form' onSubmit={this.props.submitNewEntry}>
         <label className='new-food' htmlFor='food'>
-          Food: 
+          Food:
           <input className='new-food' type='text' name='food'/>
           <input className='new-food-cals' type='text' name='food'/>
         </label>
         <label className='new-exercise' htmlFor='exercise'>
-          Exercise: 
+          Exercise:
           <input className='new-exercise' type='text' name='exercise' />
           <input className='new-exercise-cals' type='text' name='exercise' />
         </label>
