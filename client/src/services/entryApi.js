@@ -7,10 +7,10 @@ const api = axios.create({
   })
 
 
-export const createEntry = async (data) => {
+export const createEntry = async (id) => {
     try {
-        const response = await api.post('/entry', data);
-        return response.data.entry;
+        const response = await api.post(`/user/${id}/entry`);
+        return response.data;
     } catch (e) {
         console.log(e.message)
     }

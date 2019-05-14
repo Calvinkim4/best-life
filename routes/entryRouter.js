@@ -66,7 +66,7 @@ entryRouter.get('/date/:date', async (request, response) => {
 });
 
 
-entryRouter.post('/:id', async (request, response) => {
+entryRouter.post('/', async (request, response) => {
     try {
       const entry = await Entry.create(request.body);
       let userId = request.userId;

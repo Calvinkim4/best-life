@@ -21,17 +21,17 @@ const user2 = await User.create({
 
 const entry1 = await Entry.create({
   total_amount: 1569,
-  date: '2019-04-09 04:05:02'
+  date: '2019-04-09'
 })
 
 const entry2 = await Entry.create({
   total_amount: 2100,
-  date: '2019-05-09 04:05:02'
+  date: '2019-05-09'
 })
 
 const entry3 = await Entry.create({
   total_amount: 12349,
-  date: '2019-04-19 04:05:02'
+  date: '2019-04-19'
 })
 
 await entry1.setUser(user1);
