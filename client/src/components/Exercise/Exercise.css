@@ -1,0 +1,14 @@
+.exercise-data{
+  display: flex;
+  
+}
+
+.exercise-name-list{
+  list-style: none;
+  text-align: left
+}
+
+.exercise-cal-list{
+  list-style: none;
+  text-align: left
+}

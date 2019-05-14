@@ -1,0 +1,11 @@
+.stats{
+  background-image:
+    linear-gradient(
+      to right, 
+      #fda085, #f06d06
+    );
+  color: white;
+  border-radius: 0 15px 15px 0;
+  margin-right: 100px;
+  box-shadow: 0 10px 16px -3px #777;
+}

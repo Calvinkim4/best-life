@@ -29,8 +29,6 @@ class App extends React.Component {
         { !this.state.signedIn && <LoginForm signIn = {this.handleSignIn} />}
         { this.state.signedIn && <Dashboard/>}
 
-        
-
       </div>
     );
   }
