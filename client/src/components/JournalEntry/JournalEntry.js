@@ -12,9 +12,7 @@ class JournalEntry extends React.Component{
         <Food />
         <Exercise />
         </div>
-        
         <h3>Total:</h3>
-        
       </div>
       
     )
