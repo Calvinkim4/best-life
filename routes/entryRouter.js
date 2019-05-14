@@ -4,12 +4,27 @@ const entryRouter = express.Router();
 const { foodRouter } = require('./foodRouter');
 const { exerciseRouter } = require('./exerciseRouter');
 
-const { User, Entry } = require('../models');
+const { User, Entry, Food, Exercise } = require('../models');
+
+// entryRouter.get('/', async (request, response) => {
+//   try {
+//     let userId = request.userId;
+//     const entry = await Entry.findAll({
+//         where: {
+//             user_id: userId
+//         }
+//     });
+//     response.send(entry);
+//   } catch (e) {
+//     console.log(e.message);
+//   }
+// });
 
 entryRouter.get('/', async (request, response) => {
   try {
     let userId = request.userId;
     const entry = await Entry.findAll({
+      include: [ Food, Exercise ],
         where: {
             user_id: userId
         }
