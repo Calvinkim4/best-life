@@ -5,7 +5,7 @@ import { Router } from 'react-router-dom';
 
 //components
 import LoginForm from './components/LoginForm/LoginForm';
-import Dashboard from './components/Dashboard/Dashboard'
+import Dashboard from './components/Dashboard/Dashboard';
 
 
 
@@ -22,6 +22,7 @@ class App extends React.Component {
       signedIn: true
     })
   }
+
   render(){
     return (
       <div className="App">
