@@ -1,0 +1,14 @@
+.food-data{
+  display: flex;
+  
+}
+
+.food-name-list{
+  list-style: none;
+  text-align: left
+}
+
+.food-cal-list{
+  list-style: none;
+  text-align: left
+}

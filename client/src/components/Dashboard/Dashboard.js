@@ -1,6 +1,7 @@
 import React from 'react';
 import JournalEntry from '../JournalEntry/JournalEntry'
 import Stats from '../Stats/Stats'
+import './Dashboard.css'
 
 class Dashboard extends React.Component{
   render(){
