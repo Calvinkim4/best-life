@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
+import { createUser } from '../../services/userApi';
 
 class RegisterPage extends Component {
     constructor(){
         super();
         this.state = {
-            email: '',
-            password: '',
-            current_weight: 0,
-            goal_weight: 0
+            user: {},
+            created: false
         }
     }
 
@@ -19,7 +18,6 @@ class RegisterPage extends Component {
 
         if (name === 'current_weight' || name === 'goal_weight') {
             value = parseInt(value);
-            console.log('asdfasdfa');
         }
   
         const newState = {}
@@ -29,10 +27,28 @@ class RegisterPage extends Component {
 
     }
 
+    onRegisterFormSubmit = async (event) => {
+        event.preventDefault()
+
+        let newUser = {
+            email: this.state.email,
+            password: this.state.password,
+            current_weight: this.state.current_weight,
+            goal_weight: this.state.goal_weight
+        }
+
+        const user = await createUser(newUser);
+  
+        this.setState({
+            user: user,
+            created: true
+        })
+      }
+
     render () {
         return (
             <div>
-                <form className='login-form' onSubmit={this.props.signIn}>
+                <form className='login-form' onSubmit={this.onRegisterFormSubmit}>
                     <label className='username' htmlFor='email'>
                     <input className='username'type='text' name='email' placeholder='email' onChange={ this.onRegisterFormChange }/>
                     </label>
