@@ -5,7 +5,7 @@ const { Exercise, Entry } = require('../models');
 
 exerciseRouter.get('/', async (request, response) => {
   try {
-    let entryId = request.entryId; 
+    let entryId = request.entryId;
     const exercise = await Exercise.findAll({
         where: {
             entry_id: entryId
@@ -35,7 +35,7 @@ exerciseRouter.get('/:id', async (request, response) => {
 exerciseRouter.post('/', async (request, response) => {
     try {
       const exercise = await Exercise.create(request.body);
-      let entryId = request.entryId; 
+      let entryId = request.entryId;
       const entry = await Entry.findByPk(entryId);
       await exercise.setEntry(entry);
       response.send(exercise);
@@ -43,6 +43,7 @@ exerciseRouter.post('/', async (request, response) => {
       console.log(e.message);
     }
   });
+
 
   exerciseRouter.put('/:id', async (request, response) => {
     try {

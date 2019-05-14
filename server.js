@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/user', userRouter);
+// app.use('/entries', entriesRouter);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
