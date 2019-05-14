@@ -20,6 +20,21 @@ entryRouter.get('/', async (request, response) => {
   }
 });
 
+entryRouter.get('/:date', async (request, response) => {
+  try {
+    let userId = request.userId; 
+    const entry = await Entry.findOne({
+        where: {
+            user_id: userId,
+            date: request.params.date
+        }
+    });
+    response.send(entry);
+  } catch (e) {
+    console.log(e.message);
+  }
+});
+
 entryRouter.post('/', async (request, response) => {
     try {
       const entry = await Entry.create(request.body);
