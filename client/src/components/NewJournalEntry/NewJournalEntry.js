@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import './NewJournalEntry.css'
 
 class NewJournalEntry extends React.Component{
   render(){
     return(
-      <div>
-        <form className='new-entry-form' onSubmit={this.props.signIn}>
+      <div className='modal-container'>
+        <form className='new-entry-form' onSubmit={this.props.submitNewEntry}>
         <label className='new-food' htmlFor='food'>
           Food: 
           <input className='new-food' type='text' name='food'/>
@@ -15,7 +16,7 @@ class NewJournalEntry extends React.Component{
           <input className='new-exercise' type='text' name='exercise' />
           <input className='new-exercise-cals' type='text' name='exercise' />
         </label>
-        <button className='login-btn'type='submit'>Add New Post</button>
+        <button className='login-btn' type='submit' >Add New Post</button>
       </form>
       </div>
     )
