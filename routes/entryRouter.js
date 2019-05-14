@@ -32,6 +32,16 @@ entryRouter.post('/', async (request, response) => {
     }
   });
 
+  entryRouter.delete('/:id', async (request, response) => {
+    try {
+      const entry = await Entry.findByPk(request.params.id);
+      await entry.destroy();
+      response.send(entry);
+    } catch(e) {
+      console.log(e.message);
+    }
+  })
+
 //   entryRouter.use('/:id/food', (request, response, next) => {
 //     request.entryId = request.params.id;
 //     next()
