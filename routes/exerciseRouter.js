@@ -29,5 +29,15 @@ exerciseRouter.post('/', async (request, response) => {
     }
   });
 
+  exerciseRouter.delete('/:id', async (request, response) => {
+    try {
+      const exercise = await Exercise.findByPk(request.params.id);
+      await exercise.destroy();
+      response.send(exercise);
+    } catch(e) {
+      console.log(e.message);
+    }
+  })
+
 
 module.exports = { exerciseRouter };
