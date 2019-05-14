@@ -18,6 +18,22 @@ foodRouter.get('/', async (request, response) =>
   }
 })
 
+foodRouter.get('/:id', async (request, response) =>
+{
+  try {
+    const id = request.entryId;
+    const food = await Food.findAll({
+      where: {
+        entry_id: id,
+        id: request.params.id
+      }
+    });
+    response.send({food})
+  } catch (e) {
+    response.status(500).json({ msg: e.message })
+  }
+})
+
 // create food entry
 foodRouter.post('/', async (request, response) => {
   try {
