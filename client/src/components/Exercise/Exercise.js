@@ -13,16 +13,17 @@ class Exercise extends React.Component{
 
     return(
       <div className='exercise'>
-      <h3>Exercise</h3>
-      <div className='exercise-data'>
-      <ul className='exercise-name-list'>
-        {exerciseName}
-      </ul>
-      <ul className='exercise-cal-list'>
-        {exerciseCal}
-      </ul>
+        <h3>Exercise</h3>
+        <div className='exercise-data'>
+        <ul className='exercise-name-list'>
+          {exerciseName}
+        </ul>
+        <ul className='exercise-cal-list'>
+          {exerciseCal}
+        </ul>
+        </div>
+        <button className='update-btn'>update</button>
       </div>
-    </div>
     )
   }
 }

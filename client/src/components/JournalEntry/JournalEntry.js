@@ -25,6 +25,15 @@ class JournalEntry extends React.Component{
     });
   }
 
+  //create new entry
+  async newEntry(){
+    if(this.props.addEntry === true){
+      const newEntry = await createEntry();
+      this.state.entries.add(newEntry);
+    }
+    console.log(this.state.entries);
+  }
+
   // async getAllFood(id) {
   //   const foods = await getAllFood(1, id);
   //   this.setState({

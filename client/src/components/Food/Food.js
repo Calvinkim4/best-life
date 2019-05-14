@@ -14,14 +14,14 @@ class Food extends React.Component{
       <div className='food'>
         <h3>Food</h3>
         <div className='food-data'>
-        <ul className='food-name-list'>
-        {allFoodNames}
-        </ul>
-        <ul className='food-cal-list'>
-        {allFoodCals}
-        </ul>
+          <ul className='food-name-list'>
+          {allFoodNames}
+          </ul>
+          <ul className='food-cal-list'>
+          {allFoodCals}
+          </ul>
         </div>
-
+        <button className='update-btn'>update</button>
       </div>
     )
   }
