@@ -14,6 +14,7 @@ class JournalEntry extends React.Component{
         </div>
         
         <h3>Total:</h3>
+        
       </div>
       
     )
