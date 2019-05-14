@@ -16,10 +16,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/user', userRouter);
+// app.use('/entries', entriesRouter);
 
-// app.use('/food', foodRouter);
-
-// app.use('/exercise', exerciseRouter);
 
 
 app.listen(PORT, () => {
