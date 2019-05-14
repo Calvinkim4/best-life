@@ -17,4 +17,17 @@ exerciseRouter.get('/', async (request, response) => {
   }
 });
 
+exerciseRouter.post('/', async (request, response) => {
+    try {
+      const exercise = await Exercise.create(request.body);
+      let entryId = request.entryId; 
+      const entry = await Entry.findByPk(entryId);
+      await exercise.setEntry(entry);
+      response.send(exercise);
+    } catch (e) {
+      console.log(e.message);
+    }
+  });
+
+
 module.exports = { exerciseRouter };
