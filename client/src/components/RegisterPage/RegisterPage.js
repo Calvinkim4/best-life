@@ -7,8 +7,9 @@ class RegisterPage extends Component {
         this.state = {
             user: {},
             created: false
+        }
     }
-}
+
 
     onRegisterFormChange = (event) => {
         const element = event.target
@@ -53,6 +54,15 @@ class RegisterPage extends Component {
                     </label>
                     <label className='password'htmlFor='password'>
                     <input className='password'type='password' name='password' placeholder='password' onChange={ this.onRegisterFormChange }/>
+                    </label>
+                    {/* <label className='password'htmlFor='retypepassword'>
+                    <input className='password'type='password' name='retypepassword' placeholder='re-type password'/>
+                    </label> */}
+                    <label className='weight'htmlFor='weight'>
+                    <input className='weight'type='text' name='current_weight' placeholder='current weight'onChange={ this.onRegisterFormChange }/>
+                    </label>
+                    <label className='weight'htmlFor='weight'>
+                    <input className='weight'type='text' name='goal_weight' placeholder='goal weight'onChange={ this.onRegisterFormChange }/>
                     </label>
                     <button className='login-btn'type='submit'>Register</button>
                 </form>

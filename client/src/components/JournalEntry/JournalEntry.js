@@ -1,9 +1,13 @@
 import React from 'react';
 import Food from '../Food/Food';
 import Exercise from '../Exercise/Exercise';
+<<<<<<< HEAD
 import '../JournalEntry'
 
 import { getAllEntries, createEntry } from '../../services/entryApi';
+=======
+import './JournalEntry.css'
+>>>>>>> 753143a2c0d829eb4e3eb4b4928ffb1b5d37101b
 
 class JournalEntry extends React.Component{
   constructor(){
@@ -36,10 +40,19 @@ class JournalEntry extends React.Component{
     }): null;
 
     return(
+<<<<<<< HEAD
       <div>
         {allEntries}
+=======
+      <div className='journal-entry'>
+        <h1>Date</h1>
+        <div className='entry-container'>
+        <Food />
+        <Exercise />
+        </div>
+        <h3>Total:</h3>
+>>>>>>> 753143a2c0d829eb4e3eb4b4928ffb1b5d37101b
       </div>
-      
     )
   }
 }

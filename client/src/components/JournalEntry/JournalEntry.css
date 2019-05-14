@@ -1,0 +1,12 @@
+.journal-entry{
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 16px -3px #777;
+  height: 350px;
+  width: 700px;
+  text-align: center
+}
+.entry-container{
+  display: flex;
+  justify-content: space-around
+}

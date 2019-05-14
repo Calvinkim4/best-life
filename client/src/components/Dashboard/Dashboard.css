@@ -1,0 +1,23 @@
+.dashboard{
+  text-align: center;
+  width: 100vw;
+}
+.content-container{
+  display: flex;
+  
+}
+
+.new-entry-btn{
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+  margin: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 40px;
+  background-color: rgb(27, 199, 27)
+}
+
+.new-entry-btn:hover{
+  background-color: rgb(18, 146, 18)
+}
