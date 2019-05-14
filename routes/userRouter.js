@@ -23,6 +23,17 @@ userRouter.post('/', async (request, response) => {
       }
 })
 
+userRouter.put('/:id', async (request, response) => {
+  try {
+    const user = await User.findByPk(request.params.id);
+    if (user) await user.update(request.body);
+    response.send({user});
+  } catch(e) {
+    console.log(e.message);
+  }
+})
+
+
 userRouter.delete('/:id', async (request, response) => {
   try {
     const user = await User.findByPk(request.params.id);
