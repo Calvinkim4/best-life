@@ -35,15 +35,15 @@ class JournalEntry extends React.Component{
 
   render(){
 
-    const allEntries = this.state.entries ? this.state.entries.map((entry) => {
+    const allEntries = this.state.entries ? this.state.entries.map((entry, index) => {
       let id = entry.id;
       // this.getAllFood(id);
       return (
         <div className='journal-entry'>
           <h1>{entry.date}</h1>
           <div className='entry-container'>
-          <Food foods={entry.food}/>
-          <Exercise exercises={entry.exercises}/>
+          <Food foods={entry.food} />
+          <Exercise  exercises={entry.exercises}/>
           </div>
           <h3>{entry.total_amount}</h3>
         </div>
