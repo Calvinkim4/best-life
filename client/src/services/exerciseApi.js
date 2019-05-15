@@ -24,9 +24,9 @@ export const createExercise = async (id, entryId, data) => {
     }
 }
 
-export const updateExercise = async (id, entryId, exerciseId) => {
+export const updateExercise = async (id, entryId, exerciseId, data) => {
     try {
-        const response = await api.put(`/user/${id}/entry/${entryId}/exercise/${exerciseId}`);
+        const response = await api.put(`/user/${id}/entry/${entryId}/exercise/${exerciseId}`, data);
         return response.data;
     } catch (e) {
         console.log(e.message);

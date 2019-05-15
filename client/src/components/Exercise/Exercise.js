@@ -7,7 +7,8 @@ class Exercise extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      exercises: props.exercises
+      exercises: props.exercises,
+      show: false
     }
   }
 
@@ -49,19 +50,58 @@ class Exercise extends React.Component{
     await deleteExercise(this.props.userId, this.props.entryId, id);
     const allExercises = await getAllExercises(this.props.userId, this.props.entryId);
       this.setState({
+        exercises: allExercises,
+        updatedExercise: '',
+        updatedCalories: 0
+      })
+  }
+
+  onUpdateClick = async (event) => {
+    event.preventDefault();
+    const id = event.target.value;
+
+    let updatedExercise = {
+      name: this.state.name,
+      total_calories: this.state.calories
+    }
+
+    await deleteExercise(this.props.userId, this.props.entryId, id);
+    const allExercises = await getAllExercises(this.props.userId, this.props.entryId);
+      this.setState({
         exercises: allExercises
       })
   }
 
+  showModal = () => {
+    this.setState({ 
+      show: true 
+    });
+  };
+
+  hideModal = () => {
+    this.setState({ 
+      show: false 
+    });
+  };
+
   render(){
     const allExercises = this.state.exercises.map(exercise =>{
       return (
-        <div key={exercise.id} onClick={this.onDeleteClick}>
+        <div key={exercise.id} onClick={this.showModal}>
           <li className='exercise-name' value={exercise.id}>{exercise.name}</li>
           <li className='exercise-cal'  value={exercise.id} >{exercise.total_calories}</li>
+          <button>Update</button>
+          <button>Delete</button>
         </div>
       ) 
     })
+
+    const modal = this.state.show ? 
+            <div className='modal'>
+              <section className="modal-content">
+                <button onClick={this.hideModal}>Close</button>
+              </section>
+            </div> : null;
 
     return(
       <div className='exercise'>
@@ -71,6 +111,7 @@ class Exercise extends React.Component{
         {allExercises}
       </ul>
       </div>
+      
       <div>
           <form onSubmit={this.onExerciseFormSubmit}>
             <label htmlFor='food'>
@@ -84,6 +125,9 @@ class Exercise extends React.Component{
           {/* <button>Update Exercise</button>
           <button>Delete Exercise</button> */}
         </div>
+
+        {modal}
+
     </div>
 
     )
