@@ -25,3 +25,13 @@ export const getAllEntries = async (id) => {
         console.log(e.message)
     }
 }
+
+
+export const deleteEntry = async (id, entryId) => {
+    try {
+        const response = await api.delete(`/user/${id}/entry/${entryId}`);
+        return response.data;
+    } catch (e) {
+        console.log(e.message);
+    }
+}
