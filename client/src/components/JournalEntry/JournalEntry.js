@@ -3,7 +3,7 @@ import Food from '../Food/Food';
 import Exercise from '../Exercise/Exercise';
 
 import { getAllEntries, createEntry } from '../../services/entryApi';
-import { getAllFood } from '../../services/foodApi';
+// import { getAllFood } from '../../services/foodApi';
 
 import './JournalEntry.css';
 
@@ -28,8 +28,10 @@ class JournalEntry extends React.Component{
     //console.log(this.state.entries)
   }
 
-  addEntry = async () => {
-    const newEntry = await createEntry(1);
+  addEntry = async (event) => {
+    event.preventDefault();
+    
+    await createEntry(1);
     const entries = await getAllEntries(1);
     entries.reverse();
     this.setState({
@@ -40,14 +42,14 @@ class JournalEntry extends React.Component{
   render(){
 
 
-    const allEntries = this.state.entries ? this.state.entries.map((entry, index) => {
+    const allEntries = this.state.entries ? this.state.entries.map((entry) => {
       let id = entry.id;
       return (
-        <div className='journal-entry'>
+        <div key={entry.id} className='journal-entry'>
           <h1>{entry.date}</h1>
           <div className='entry-container'>
-          <Food foods={entry.food} />
-          <Exercise  exercises={entry.exercises}/>
+          <Food foods={entry.food} userId={1} entryId={id}/>
+          <Exercise exercises={entry.exercises} userId={1} entryId={id}/>
           </div>
           <h3>{entry.total_amount}</h3>
         </div>

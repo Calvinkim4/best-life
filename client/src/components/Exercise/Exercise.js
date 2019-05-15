@@ -5,10 +5,10 @@ class Exercise extends React.Component{
 
   render(){
     const exerciseName = this.props.exercises.map(exercise =>{
-      return   <li className='exercise-name'>{exercise.name}</li>
+      return   <li key={exercise.id} className='exercise-name'>{exercise.name}</li>
     })
     const exerciseCal = this.props.exercises.map(exercise =>{
-      return   <li className='exercise-cal'>{exercise.total_calories}</li>
+      return   <li key={exercise.id} className='exercise-cal'>{exercise.total_calories}</li>
     })
 
     return(
