@@ -11,7 +11,7 @@ exerciseRouter.get('/', async (request, response) => {
             entry_id: entryId
         }
     });
-    response.send(exercise);
+    response.send({exercise});
   } catch (e) {
     console.log(e.message);
   }
