@@ -1,7 +1,7 @@
 import React from 'react';
 import './Food.css'
 
-import { createFood, getAllFood } from '../../services/foodApi';
+import { createFood, getAllFood, updateFood, deleteFood } from '../../services/foodApi';
 
 class Food extends React.Component{
   constructor(props) {
@@ -42,29 +42,34 @@ class Food extends React.Component{
       })
 
   }
-    
-  render(){
+  
+  onDeleteClick = async (event) => {
+    event.preventDefault();
+    const id = event.target.value;
+    await deleteFood(this.props.userId, this.props.entryId, id);
+    const allFoods = await getAllFood(this.props.userId, this.props.entryId);
+      this.setState({
+        foods: allFoods
+      })
+  }
 
-    const allFoodNames = this.state.foods.map(food =>{
-      return <li key={food.id} className='food-name'>{food.name}</li>
-    })
-    const allFoodCals = this.state.foods.map(food =>{
-      return <li key={food.id} className='food-cal'>{food.total_calories}</li>
+  render(){
+    const allFoods = this.state.foods.map(food =>{
+      return (
+        <div key={food.id} onClick={this.onDeleteClick}>
+          <li className='food-name' value={food.id}>{food.name}</li>
+          <li className='food-cal' value={food.id} >{food.total_calories}</li>
+        </div>
+      ) 
     })
     return(
       <div className='food'>
         <h3>Food</h3>
         <div className='food-data'>
         <ul className='food-name-list'>
-        {allFoodNames}
-        </ul>
-        <ul className='food-cal-list'>
-        {allFoodCals}
+          {allFoods}
         </ul>
         </div>
-
-        <button className='update-btn'>update</button>
-
         <div>
           <form onSubmit={this.onFoodFormSubmit}>
             <label htmlFor='food'>
@@ -76,8 +81,6 @@ class Food extends React.Component{
             <button type='submit'>Add Food</button>
           </form>
         </div>
-        
-
       </div>
     )
   }
