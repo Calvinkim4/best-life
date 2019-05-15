@@ -111,7 +111,7 @@ class Exercise extends React.Component{
         {allExercises}
       </ul>
       </div>
-      
+
       <div>
           <form onSubmit={this.onExerciseFormSubmit}>
             <label htmlFor='food'>
