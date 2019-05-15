@@ -1,7 +1,7 @@
 import React from 'react';
 import './Food.css'
 
-import { createFood, getAllFood } from '../../services/foodApi';
+import { createFood, getAllFood, updateFood, deleteFood } from '../../services/foodApi';
 
 class Food extends React.Component{
   constructor(props) {

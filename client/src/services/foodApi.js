@@ -23,3 +23,21 @@ export const createFood = async (id, entryId, data) => {
         console.log(e.message)
     }
 }
+
+export const updateFood = async (id, entryId, foodId) => {
+    try {
+        const response = await api.put(`/user/${id}/entry/${entryId}/food/${foodId}`);
+        return response.data;
+    } catch (e) {
+        console.log(e.message);
+    }
+}
+
+export const deleteFood = async (id, entryId, foodId) => {
+    try {
+        const response = await api.delete(`/user/${id}/entry/${entryId}/food/${foodId}`);
+        return response.data;
+    } catch (e) {
+        console.log(e.message);
+    }
+}
