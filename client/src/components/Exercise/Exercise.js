@@ -46,7 +46,11 @@ class Exercise extends React.Component{
   onDeleteClick = async (event) => {
     event.preventDefault();
     const id = event.target.value;
-    console.log(id);
+    await deleteExercise(this.props.userId, this.props.entryId, id);
+    const allExercises = await getAllExercises(this.props.userId, this.props.entryId);
+      this.setState({
+        exercises: allExercises
+      })
   }
 
   render(){
