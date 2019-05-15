@@ -2,7 +2,7 @@ import React from 'react';
 import Food from '../Food/Food';
 import Exercise from '../Exercise/Exercise';
 
-import { getAllEntries, createEntry } from '../../services/entryApi';
+import { getAllEntries, createEntry, deleteEntry  } from '../../services/entryApi';
 // import { getAllFood } from '../../services/foodApi';
 
 import './JournalEntry.css';
@@ -30,13 +30,23 @@ class JournalEntry extends React.Component{
 
   addEntry = async (event) => {
     event.preventDefault();
-    
+
     await createEntry(1);
     const entries = await getAllEntries(1);
     entries.reverse();
     this.setState({
       entries: entries
     });
+  }
+
+  onDeleteClick = async (event) => {
+    event.preventDefault();
+    const id = event.target.value;
+    await deleteEntry(1, id);
+    const allEntries = await getAllEntries(1);
+      this.setState({
+        entries: allEntries
+      })
   }
 
   render(){
@@ -53,6 +63,7 @@ class JournalEntry extends React.Component{
 
           </div>
           <h3>Total calories for the day: {entry.total_amount}</h3>
+          <button onClick={this.onDeleteClick}>Delete</button>
         </div>
       )
     }): null;
