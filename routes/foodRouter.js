@@ -1,5 +1,5 @@
 const express = require('express');
-const { Food } = require('../models')
+const { Food, Entry } = require('../models')
 const foodRouter = express.Router();
 
 // all foods with entry id
@@ -39,7 +39,7 @@ foodRouter.post('/', async (request, response) => {
   try {
     const createFood = await Food.create(request.body);
     let entryId = request.entryId;
-    const entry = await Entry.findByPK(entryId);
+    const entry = await Entry.findByPk(entryId);
     await createFood.setEntry(entry);
     response.send(createFood);
   } catch (e) {
