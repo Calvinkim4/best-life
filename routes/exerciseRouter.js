@@ -44,7 +44,6 @@ exerciseRouter.post('/', async (request, response) => {
     }
   });
 
-
   exerciseRouter.put('/:id', async (request, response) => {
     try {
       const exercise = await Exercise.findByPk(request.params.id);

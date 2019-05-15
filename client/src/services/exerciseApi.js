@@ -23,3 +23,21 @@ export const createExercise = async (id, entryId, data) => {
         console.log(e.message)
     }
 }
+
+export const updateExercise = async (id, entryId, exerciseId) => {
+    try {
+        const response = await api.put(`/user/${id}/entry/${entryId}/exercise/${exerciseId}`);
+        return response.data;
+    } catch (e) {
+        console.log(e.message);
+    }
+}
+
+export const deleteExercise = async (id, entryId, exerciseId) => {
+    try {
+        const response = await api.delete(`/user/${id}/entry/${entryId}/exercise/${exerciseId}`);
+        return response.data;
+    } catch (e) {
+        console.log(e.message);
+    }
+}
