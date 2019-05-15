@@ -21,19 +21,20 @@ class JournalEntry extends React.Component{
 // hardcoded user id
   async componentDidMount() {
     const entries = await getAllEntries(1);
+    entries.reverse();
     this.setState({
       entries: entries
     });
-    console.log(this.state.entries)
+    //console.log(this.state.entries)
   }
 
-  //create new entry
-  async newEntry(){
-    if(this.props.addEntry === true){
-      const newEntry = await createEntry();
-      this.state.entries.add(newEntry);
-    }
-    console.log(this.state.entries);
+  addEntry = async () => {
+    const newEntry = await createEntry(1);
+    const entries = await getAllEntries(1);
+    entries.reverse();
+    this.setState({
+      entries: entries
+    });
   }
 
   render(){

@@ -23,7 +23,10 @@ class Exercise extends React.Component{
         </ul>
         </div>
         <button className='update-btn'>update</button>
+        <button>Add Exercise</button>
       </div>
+      
+
     )
   }
 }
