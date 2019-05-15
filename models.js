@@ -19,8 +19,14 @@ const User = sequelize.define('user', {
 });
 
 const Entry = sequelize.define('entry', {
-  total_amount: Sequelize.INTEGER,
-  date: Sequelize.DATEONLY
+  total_amount: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0
+  },
+  date: {
+    type: Sequelize.DATEONLY,
+    defaultValue: Sequelize.NOW
+  }
 })
 
 

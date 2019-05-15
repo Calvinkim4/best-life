@@ -13,7 +13,8 @@ class JournalEntry extends React.Component{
     this.state = {
       entries: [],
       foods: [],
-      exercises: []
+      exercises: [],
+      calorie_amount: 0
     }
   }
 
@@ -23,6 +24,7 @@ class JournalEntry extends React.Component{
     this.setState({
       entries: entries
     });
+    console.log(this.state.entries)
   }
 
   //create new entry
@@ -36,9 +38,9 @@ class JournalEntry extends React.Component{
 
   render(){
 
+
     const allEntries = this.state.entries ? this.state.entries.map((entry, index) => {
       let id = entry.id;
-      // this.getAllFood(id);
       return (
         <div className='journal-entry'>
           <h1>{entry.date}</h1>
@@ -53,6 +55,7 @@ class JournalEntry extends React.Component{
 
     return(
       <div>
+        <button onClick={this.addEntry}>Add Entry</button>
         {allEntries}
       </div>
     )
