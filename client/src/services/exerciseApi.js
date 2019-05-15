@@ -6,6 +6,15 @@ const api = axios.create({
     baseURL: `${URL}`
   })
 
+  export const getExercise = async (id, entryId, exerciseId) => {
+    try {
+        const response = await api.get(`/user/${id}/entry/${entryId}/exercise/${exerciseId}`);
+        return response.data.exercise;
+    } catch (e) {
+        console.log(e.message)
+    }
+}
+
 export const getAllExercises = async (id, entryId) => {
     try {
         const response = await api.get(`/user/${id}/entry/${entryId}/exercise`);
@@ -24,9 +33,9 @@ export const createExercise = async (id, entryId, data) => {
     }
 }
 
-export const updateExercise = async (id, entryId, exerciseId) => {
+export const updateExercise = async (id, entryId, exerciseId, data) => {
     try {
-        const response = await api.put(`/user/${id}/entry/${entryId}/exercise/${exerciseId}`);
+        const response = await api.put(`/user/${id}/entry/${entryId}/exercise/${exerciseId}`, data);
         return response.data;
     } catch (e) {
         console.log(e.message);
