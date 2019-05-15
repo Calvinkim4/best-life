@@ -66,7 +66,12 @@ class Exercise extends React.Component{
       <ul className='exercise-name-list'>
         {allExercises}
       </ul>
+
       </div>
+
+      
+
+
       <div>
           <form onSubmit={this.onExerciseFormSubmit}>
             <label htmlFor='food'>
@@ -81,6 +86,7 @@ class Exercise extends React.Component{
           <button>Delete Exercise</button> */}
         </div>
     </div>
+
     )
   }
 }
