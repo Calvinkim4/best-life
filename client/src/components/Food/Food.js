@@ -62,6 +62,9 @@ class Food extends React.Component{
         {allFoodCals}
         </ul>
         </div>
+
+        <button className='update-btn'>update</button>
+
         <div>
           <form onSubmit={this.onFoodFormSubmit}>
             <label htmlFor='food'>
@@ -74,6 +77,7 @@ class Food extends React.Component{
           </form>
         </div>
         
+
       </div>
     )
   }

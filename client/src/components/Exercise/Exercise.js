@@ -52,9 +52,9 @@ class Exercise extends React.Component{
   render(){
     const allExercises = this.state.exercises.map(exercise =>{
       return (
-        <div key={exercise.id}>
-          <li className='exercise-name' value={exercise.id} onClick={this.onDeleteClick}>{exercise.name}</li>
-          <li className='exercise-cal'  value={exercise.id} onClick={this.onDeleteClick}>{exercise.total_calories}</li>
+        <div key={exercise.id} onClick={this.onDeleteClick}>
+          <li className='exercise-name' value={exercise.id}>{exercise.name}</li>
+          <li className='exercise-cal'  value={exercise.id} >{exercise.total_calories}</li>
         </div>
       ) 
     })
