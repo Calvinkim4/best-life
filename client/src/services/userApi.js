@@ -30,6 +30,16 @@ export const getUser = async (id) => {
 
 //login user
 
+//update user info
+export const updateUser = async (id, data) => {
+  try {
+      const response = await api.put(`/user/${id}`, data);
+      return response.data;
+  } catch (e) {
+      console.log(e.message);
+  }
+}
+
 
 
   

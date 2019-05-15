@@ -42,6 +42,7 @@ class JournalEntry extends React.Component{
   onDeleteClick = async (event) => {
     event.preventDefault();
     const id = event.target.value;
+    console.log(id);
     await deleteEntry(1, id);
     const allEntries = await getAllEntries(1);
       this.setState({
@@ -63,7 +64,7 @@ class JournalEntry extends React.Component{
 
           </div>
           <h3>Total calories for the day: {entry.total_amount}</h3>
-          <button onClick={this.onDeleteClick}>Delete</button>
+          <button value={entry.id} onClick={this.onDeleteClick}>Delete</button>
         </div>
       )
     }): null;

@@ -119,28 +119,28 @@ class Exercise extends React.Component{
 
     return(
       <div className='exercise'>
-      <h3>Exercise</h3>
-      <div className='exercise-data'>
-      <ul className='exercise-name-list'>
-        {allExercises}
-      </ul>
-      </div>
-
-      <div>
-          <form onSubmit={this.onExerciseFormSubmit}>
-            <label htmlFor='food'>
-              <input type='text' name='name' placeholder='exercise' onChange={ this.onExerciseFormChange }/>
-            </label>
-            <label htmlFor='calories'>
-              <input type='text' name='calories' placeholder='calories' onChange={ this.onExerciseFormChange }/>
-            </label>
-            <button type='submit'>Add Exercise</button>
-          </form>
+        <h3>Exercise</h3>
+        <div className='exercise-data'>
+        <ul className='exercise-name-list'>
+          {allExercises}
+        </ul>
         </div>
 
-        {modal}
+        <div>
+            <form onSubmit={this.onExerciseFormSubmit}>
+              <label htmlFor='food'>
+                <input type='text' name='name' placeholder='exercise' onChange={ this.onExerciseFormChange }/>
+              </label>
+              <label htmlFor='calories'>
+                <input type='text' name='calories' placeholder='calories' onChange={ this.onExerciseFormChange }/>
+              </label>
+              <button type='submit'>Add Exercise</button>
+            </form>
+          </div>
 
-    </div>
+          {modal}
+
+      </div>
 
     )
   }
