@@ -66,7 +66,6 @@ class Exercise extends React.Component{
       <ul className='exercise-name-list'>
         {allExercises}
       </ul>
-
       </div>
 
       
