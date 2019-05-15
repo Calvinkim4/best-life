@@ -22,6 +22,7 @@ class Exercise extends React.Component{
         {exerciseCal}
       </ul>
       </div>
+      <button>Add Exercise</button>
     </div>
     )
   }

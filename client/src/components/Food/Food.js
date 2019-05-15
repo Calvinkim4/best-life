@@ -20,6 +20,7 @@ class Food extends React.Component{
         <ul className='food-cal-list'>
         {allFoodCals}
         </ul>
+        <button>Add Food</button>
         </div>
 
       </div>
