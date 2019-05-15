@@ -6,6 +6,15 @@ const api = axios.create({
     baseURL: `${URL}`
   })
 
+  export const getExercise = async (id, entryId, exerciseId) => {
+    try {
+        const response = await api.get(`/user/${id}/entry/${entryId}/exercise/${exerciseId}`);
+        return response.data.exercise;
+    } catch (e) {
+        console.log(e.message)
+    }
+}
+
 export const getAllExercises = async (id, entryId) => {
     try {
         const response = await api.get(`/user/${id}/entry/${entryId}/exercise`);

@@ -26,7 +26,7 @@ exerciseRouter.get('/:id', async (request, response) => {
               id: request.params.id
           }
       });
-      response.send(exercise);
+      response.send({exercise});
     } catch (e) {
       console.log(e.message);
     }
