@@ -1,5 +1,6 @@
 import React from 'react';
 import './Stats.css'
+
 import { getUser, updateUser } from '../../services/userApi';
 
 class Stats extends React.Component{
@@ -26,6 +27,7 @@ class Stats extends React.Component{
           <h3>Current Weight: {this.state.user.current_weight} lbs</h3>
           <h3>Goal Weight: {this.state.user.goal_weight} lbs</h3>
           <h3>Calorie Limit: {this.state.user.calorie_intake}</h3> 
+          <button>Update</button>
         </div>
       </div>
     )
