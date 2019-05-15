@@ -50,8 +50,9 @@ class JournalEntry extends React.Component{
           <div className='entry-container'>
           <Food foods={entry.food} userId={1} entryId={id}/>
           <Exercise exercises={entry.exercises} userId={1} entryId={id}/>
+
           </div>
-          <h3>{entry.total_amount}</h3>
+          <h3>Total calories for the day: {entry.total_amount}</h3>
         </div>
       )
     }): null;

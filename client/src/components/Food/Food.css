@@ -12,3 +12,28 @@
   list-style: none;
   text-align: left
 }
+
+.update-btn{
+  width: 80px;
+  background-image:
+    linear-gradient(
+      to right, 
+      #4AC29A, rgb(121, 204, 189)
+    );
+  color: white;
+  height: 15px;
+  font-size: 12px;
+  border-radius: 15px;
+  border: none;
+  margin-top: 40px;
+}
+.update-btn:hover{
+  background-image:
+    linear-gradient(
+      to right, 
+      red, #f06d06
+    );
+  transform: scale(1.2)
+}
+
+
