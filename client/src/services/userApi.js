@@ -20,7 +20,8 @@ export const createUser = async (data) => {
 export const getUser = async (id) => {
   try {
     const response = await api.get(`/user/${id}`);
-    return response.data.user;
+    return response.data;
+    
   } catch (e) {
     console.log(e.message)
   }
