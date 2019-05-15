@@ -6,6 +6,14 @@ const api = axios.create({
     baseURL: `${URL}`
   })
 
+export const getFood = async (id, entryId, foodId) => {
+    try {
+        const response = await api.get(`/user/${id}/entry/${entryId}/food/${foodId}`);
+        return response.data.food;
+    } catch (e) {
+        console.log(e.message)
+    }
+}
 export const getAllFood = async (id, entryId) => {
     try {
         const response = await api.get(`/user/${id}/entry/${entryId}/food`);
@@ -24,9 +32,10 @@ export const createFood = async (id, entryId, data) => {
     }
 }
 
-export const updateFood = async (id, entryId, foodId) => {
+export const updateFood = async (id, entryId, foodId, data) => {
     try {
-        const response = await api.put(`/user/${id}/entry/${entryId}/food/${foodId}`);
+        const response = await api.put(`/user/${id}/entry/${entryId}/food/${foodId}`, data);
+        console.log(response.data)
         return response.data;
     } catch (e) {
         console.log(e.message);
