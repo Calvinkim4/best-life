@@ -25,24 +25,24 @@ class Food extends React.Component{
 
     this.setState(newState)
 
-}
+  }
 
-onFoodFormSubmit = async (event) => {
-    event.preventDefault();
+  onFoodFormSubmit = async (event) => {
+      event.preventDefault();
 
-    let newFood = {
-      name: this.state.name,
-      total_calories: this.state.calories
-    }
+      let newFood = {
+        name: this.state.name,
+        total_calories: this.state.calories
+      }
 
-    await createFood(this.props.userId, this.props.entryId, newFood);
-    const allFoods = await getAllFood(this.props.userId, this.props.entryId);
-    this.setState({
-      foods: allFoods
-    })
+      await createFood(this.props.userId, this.props.entryId, newFood);
+      const allFoods = await getAllFood(this.props.userId, this.props.entryId);
+      this.setState({
+        foods: allFoods
+      })
 
   }
-  
+    
   render(){
 
     const allFoodNames = this.state.foods.map(food =>{
