@@ -1,6 +1,6 @@
 import React from 'react';
 import './Stats.css'
-import { getUser } from '../../services/userApi';
+import { getUser, updateUser } from '../../services/userApi';
 
 class Stats extends React.Component{
   constructor(){
