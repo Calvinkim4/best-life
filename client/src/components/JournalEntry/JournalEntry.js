@@ -34,14 +34,6 @@ class JournalEntry extends React.Component{
     console.log(this.state.entries);
   }
 
-  // async getAllFood(id) {
-  //   const foods = await getAllFood(1, id);
-  //   this.setState({
-  //     food: foods
-  //   })
-  //   console.log(foods);
-  // }
-
   render(){
 
     const allEntries = this.state.entries ? this.state.entries.map((entry, index) => {
@@ -51,10 +43,10 @@ class JournalEntry extends React.Component{
         <div className='journal-entry'>
           <h1>{entry.date}</h1>
           <div className='entry-container'>
-          <Food foods={entry.food} />
-          <Exercise  exercises={entry.exercises}/>
+            <Food foods={entry.food} />
+            <Exercise  exercises={entry.exercises}/>
           </div>
-          <h3>{entry.total_amount}</h3>
+          <h3>Total calories for the day: {entry.total_amount}</h3>
         </div>
       )
     }): null;
