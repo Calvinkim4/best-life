@@ -16,6 +16,7 @@ export const createEntry = async (id) => {
     }
 }
 
+
 export const getAllEntries = async (id) => {
     try {
         const response = await api.get(`/user/${id}/entry`);
