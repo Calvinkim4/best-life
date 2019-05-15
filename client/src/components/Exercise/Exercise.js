@@ -1,7 +1,7 @@
 import React from 'react'
 import './Exercise.css'
 
-import { getAllExercises, createExercise } from '../../services/exerciseApi';
+import { getAllExercises, createExercise, updateExercise, deleteExercise } from '../../services/exerciseApi';
 
 class Exercise extends React.Component{
   constructor(props) {
@@ -43,27 +43,29 @@ class Exercise extends React.Component{
 
   }
 
+  onDeleteClick = async (event) => {
+    event.preventDefault();
+    const id = event.target.value;
+    console.log(id);
+  }
+
   render(){
-    const exerciseName = this.state.exercises.map(exercise =>{
-      return   <li key={exercise.id} className='exercise-name'>{exercise.name}</li>
-    })
-    const exerciseCal = this.state.exercises.map(exercise =>{
-      return   <li key={exercise.id} className='exercise-cal'>{exercise.total_calories}</li>
+    const allExercises = this.state.exercises.map(exercise =>{
+      return (
+        <div key={exercise.id} onClick={this.onDeleteClick}>
+          <li className='exercise-name' value={exercise.id}>{exercise.name}</li>
+          <li className='exercise-cal'  value={exercise.id} >{exercise.total_calories}</li>
+        </div>
+      ) 
     })
 
     return(
       <div className='exercise'>
-        <h3>Exercise</h3>
-        <div className='exercise-data'>
-        <ul className='exercise-name-list'>
-          {exerciseName}
-        </ul>
-        <ul className='exercise-cal-list'>
-          {exerciseCal}
-        </ul>
-        </div>
-        <button className='update-btn'>update</button>
-        <button>Add Exercise</button>
+      <h3>Exercise</h3>
+      <div className='exercise-data'>
+      <ul className='exercise-name-list'>
+        {allExercises}
+      </ul>
       </div>
 
       
@@ -79,6 +81,8 @@ class Exercise extends React.Component{
             </label>
             <button type='submit'>Add Exercise</button>
           </form>
+          {/* <button>Update Exercise</button>
+          <button>Delete Exercise</button> */}
         </div>
     </div>
 
