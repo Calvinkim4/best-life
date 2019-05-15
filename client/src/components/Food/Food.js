@@ -7,7 +7,9 @@ class Food extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      foods: props.foods
+      foods: props.foods,
+      show:false,
+      updatedFood: {}
     }
   }
 
@@ -42,7 +44,42 @@ class Food extends React.Component{
       })
 
   }
-  
+
+  onUpdateClick = async (event) => {
+    event.preventDefault();
+    const id = this.state.id;
+
+    let updatedFood = {
+      name: this.state.updatedFood,
+      total_calories: this.state.updatedCalories
+    }
+
+    await updateFood(this.props.userId, this.props.entryId, id, updatedFood);
+    const allFoods = await getAllFood(this.props.userId, this.props.entryId);
+      this.setState({
+        foods: allFoods
+      })
+
+  }
+
+  showModal = async (event) => {
+    const id = event.target.value;
+    const food = await getAllFood(this.props.userId, this.props.entryId, id);
+
+    this.setState({
+      show: true,
+      updatedFood: food,
+      id: id
+    });
+  };
+
+  hideModal = () => {
+    this.setState({
+      show: false
+    });
+  };
+
+
   onDeleteClick = async (event) => {
     event.preventDefault();
     const id = event.target.value;
@@ -60,7 +97,7 @@ class Food extends React.Component{
           <li className='food-name' value={food.id}>{food.name}</li>
           <li className='food-cal' value={food.id} >{food.total_calories}</li>
         </div>
-      ) 
+      )
     })
     return(
       <div className='food'>

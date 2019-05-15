@@ -39,6 +39,8 @@ class JournalEntry extends React.Component{
     });
   }
 
+  
+
   onDeleteClick = async (event) => {
     event.preventDefault();
     const id = event.target.value;
