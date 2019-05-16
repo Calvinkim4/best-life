@@ -26,13 +26,11 @@ class Dashboard extends React.Component{
 
   render(){
     return(
-      <div className='dashboard'> 
+      <div className='dashboard'>
         <h1> Dashboard</h1>
         <div className='content-container'>
           <Stats />
           <JournalEntry addEntry={this.state.addEntry}/>
-          <button className='new-entry-btn' onClick={this.addNewEntry}>+</button>
-          {/* { this.state.addEntry && <NewJournalEntry submitNewEntry={this.submitNewEntry}/>} */}
         </div>
       </div>
     )

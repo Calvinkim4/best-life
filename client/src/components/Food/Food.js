@@ -44,7 +44,7 @@ class Food extends React.Component{
       })
 
   }
-  
+
   onDeleteClick = async (event) => {
     event.preventDefault();
     const id = event.target.value;
@@ -64,14 +64,14 @@ class Food extends React.Component{
       total_calories: this.state.updatedCalories
     }
 
-    // console.log(updatedFood)
+    
     await updateFood(this.props.userId, this.props.entryId, id, updatedFood);
     const allFood = await getAllFood(this.props.userId, this.props.entryId);
       this.setState({
         foods: allFood
       })
 
-  
+
 
       this.hideModal();
   }
@@ -79,7 +79,7 @@ class Food extends React.Component{
   showModal = async (event) => {
     const id = event.target.value;
     const food = await getFood(this.props.userId, this.props.entryId, id);
-    this.setState({ 
+    this.setState({
       show: true,
       updatedFood: food,
       id: id
@@ -88,8 +88,8 @@ class Food extends React.Component{
   };
 
   hideModal = () => {
-    this.setState({ 
-      show: false 
+    this.setState({
+      show: false
     });
   };
 
@@ -102,10 +102,10 @@ class Food extends React.Component{
           <button value={food.id} onClick={this.showModal}>Update</button>
           <button value={food.id} onClick={this.onDeleteClick}>Delete</button>
         </div>
-      ) 
+      )
     })
 
-    const modal = (this.state.show && this.state.updatedFood) ? 
+    const modal = (this.state.show && this.state.updatedFood) ?
             <div className='modal'>
               <section className="modal-content">
               <form onSubmit={this.onUpdateClick}>

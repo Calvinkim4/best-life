@@ -2,7 +2,6 @@ const express = require('express');
 const { Food, Entry } = require('../models')
 const foodRouter = express.Router();
 
-// all foods with entry id
 foodRouter.get('/', async (request, response) =>
 {
   try {
@@ -34,7 +33,6 @@ foodRouter.get('/:id', async (request, response) =>
   }
 })
 
-// create food entry
 foodRouter.post('/', async (request, response) => {
   try {
     const createFood = await Food.create(request.body);
@@ -48,9 +46,6 @@ foodRouter.post('/', async (request, response) => {
 });
 
 
-//update food entry
-
-
 foodRouter.put('/:id', async (request, response) => {
   try {
     const food = await Food.findByPk(request.params.id);
@@ -60,6 +55,7 @@ foodRouter.put('/:id', async (request, response) => {
     console.log(e.message);
   }
 })
+
 
 
 // delete food entry
