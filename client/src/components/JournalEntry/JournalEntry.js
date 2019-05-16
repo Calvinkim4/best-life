@@ -3,7 +3,7 @@ import Food from '../Food/Food';
 import Exercise from '../Exercise/Exercise';
 
 import { getAllEntries, createEntry, deleteEntry  } from '../../services/entryApi';
-// import { getAllFood } from '../../services/foodApi';
+
 
 import './JournalEntry.css';
 
@@ -18,14 +18,14 @@ class JournalEntry extends React.Component{
     }
   }
 
-// hardcoded user id
+
   async componentDidMount() {
     const entries = await getAllEntries(1);
     entries.reverse();
     this.setState({
       entries: entries
     });
-    //console.log(this.state.entries)
+  
   }
 
   addEntry = async (event) => {

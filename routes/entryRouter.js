@@ -6,20 +6,6 @@ const { exerciseRouter } = require('./exerciseRouter');
 
 const { User, Entry, Food, Exercise } = require('../models');
 
-// entryRouter.get('/', async (request, response) => {
-//   try {
-//     let userId = request.userId;
-//     const entry = await Entry.findAll({
-//         where: {
-//             user_id: userId
-//         }
-//     });
-//     response.send(entry);
-//   } catch (e) {
-//     console.log(e.message);
-//   }
-// });
-
 entryRouter.get('/', async (request, response) => {
   try {
     let userId = request.userId;
@@ -37,7 +23,7 @@ entryRouter.get('/', async (request, response) => {
 
 entryRouter.get('/:id', async (request, response) => {
   try {
-    let userId = request.userId; 
+    let userId = request.userId;
     const entry = await Entry.findOne({
         where: {
             user_id: userId,
@@ -52,7 +38,7 @@ entryRouter.get('/:id', async (request, response) => {
 
 entryRouter.get('/date/:date', async (request, response) => {
   try {
-    let userId = request.userId; 
+    let userId = request.userId;
     const entry = await Entry.findOne({
         where: {
             user_id: userId,

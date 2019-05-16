@@ -19,10 +19,10 @@ class RegisterPage extends Component {
         if (name === 'current_weight' || name === 'goal_weight') {
             value = parseInt(value);
         }
-  
+
         const newState = {}
         newState[name] = value
-  
+
         this.setState(newState)
 
     }
@@ -38,7 +38,7 @@ class RegisterPage extends Component {
         }
 
         const user = await createUser(newUser);
-  
+
         this.setState({
             user: user,
             created: true
@@ -55,9 +55,6 @@ class RegisterPage extends Component {
                     <label className='password'htmlFor='password'>
                     <input className='password'type='password' name='password' placeholder='password' onChange={ this.onRegisterFormChange }/>
                     </label>
-                    {/* <label className='password'htmlFor='retypepassword'>
-                    <input className='password'type='password' name='retypepassword' placeholder='re-type password'/>
-                    </label> */}
                     <label className='weight'htmlFor='weight'>
                     <input className='weight'type='text' name='current_weight' placeholder='current weight'onChange={ this.onRegisterFormChange }/>
                     </label>

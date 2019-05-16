@@ -6,7 +6,7 @@ const api = axios.create({
     baseURL: `${URL}`
   })
 
-//register user
+
 export const createUser = async (data) => {
   try {
     const response = await api.post('/user', data);
@@ -21,16 +21,14 @@ export const getUser = async (id) => {
   try {
     const response = await api.get(`/user/${id}`);
     return response.data;
-    
+
   } catch (e) {
     console.log(e.message)
   }
 }
 
 
-//login user
 
-//update user info
 export const updateUser = async (id, data) => {
   try {
       const response = await api.put(`/user/${id}`, data);
@@ -39,7 +37,3 @@ export const updateUser = async (id, data) => {
       console.log(e.message);
   }
 }
-
-
-
-  
