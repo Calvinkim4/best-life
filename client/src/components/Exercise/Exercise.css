@@ -1,16 +1,17 @@
 .exercise-data{
   display: flex;
-  
+  justify-content: center;
+
 }
 
 .exercise-name-list{
   list-style: none;
-  text-align: left
+  text-align: center;
 }
 
 .exercise-cal-list{
   list-style: none;
-  text-align: left
+  text-align: center;
 }
 
 .modal {
