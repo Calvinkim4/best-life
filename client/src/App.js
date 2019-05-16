@@ -67,10 +67,10 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <nav>
-          
+    
+          <h1 className='best-life'>BestLife</h1>
           { !isSignedIn &&
-            <div>
+            <div className='register'>
               <LoginForm isSignedIn={isSignedIn} handleLogin={this.loginUser}/>
 
               <RegisterPage isSignedIn={isSignedIn} handleSignUp={this.signUpUser}/>
@@ -83,9 +83,9 @@ class App extends Component {
               <Dashboard userId={this.state.user.id}/>
             </div>
           }
-        </nav>
+        <div className='back-image'></div>
 
-        <a href='https://github.com/Calvinkim4/best-life'>Github Page</a>
+        <a className='github-link' href='https://github.com/Calvinkim4/best-life'>Github Page</a>
       </div>
     )
   }

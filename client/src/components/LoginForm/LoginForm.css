@@ -1,12 +1,17 @@
 .login-form{
   display: flex;
-  flex-direction: column;
-  width: 500px;
-  height: 400px;
-  background-color: white;
+  flex-direction: column; 
+  width: 350px;
+  height: 250px;
+  background-color: rgba(255, 255, 255, 0.96);
   border-radius: 10px;
-  box-shadow: 0 10px 16px -3px #777;
+  box-shadow: 0 10px 16px -3px rgb(42, 42, 43);
   align-items: center;
+  padding-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 
@@ -34,20 +39,12 @@
   transform: scale(1.2)
 }
 
-.username{
+.login-input{
   margin-top: 20px;
   font-size: 20px;
+  text-align: center;
 }
 
-.password{
-  margin-top: 20px;
-  font-size: 20px;
-}
-
-.weight {
-  margin-top: 20px;
-  font-size: 20px;
-}
 
 input {
   text-align: center;
