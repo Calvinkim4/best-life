@@ -1,6 +1,5 @@
 import React from 'react';
 import JournalEntry from '../JournalEntry/JournalEntry'
-import NewJournalEntry from '../NewJournalEntry/NewJournalEntry'
 import Stats from '../Stats/Stats'
 import './Dashboard.css'
 
@@ -28,9 +27,12 @@ class Dashboard extends React.Component{
     return(
       <div className='dashboard'>
         <h1> Dashboard</h1>
+        
         <div className='content-container'>
-          <Stats />
-          <JournalEntry addEntry={this.state.addEntry}/>
+          <Stats userId={this.props.userId} />
+          <JournalEntry addEntry={this.state.addEntry} userId={this.props.userId}/>
+          <button className='new-entry-btn' onClick={this.addNewEntry}>+</button>
+
         </div>
       </div>
     )
