@@ -71,6 +71,8 @@ class Exercise extends React.Component{
         exercises: allExercises
       })
 
+      this.hideModal();
+
   }
 
   showModal = async (event) => {
@@ -106,7 +108,7 @@ class Exercise extends React.Component{
             <div className='modal'>
               <section className="modal-content">
               <form onSubmit={this.onUpdateClick}>
-                <label htmlFor='food'>
+                <label htmlFor='exercise'>
                   <input type='text' name='updatedExercise' placeholder={this.state.updatedExercise.name} onChange={ this.onExerciseFormChange }/>
                 </label>
                 <label htmlFor='calories'>
