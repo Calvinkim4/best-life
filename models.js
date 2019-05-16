@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const bcrypt = require('bcrypt');
 
 const sequelize = new Sequelize({
   database: 'best_life_db',
@@ -8,14 +9,43 @@ const sequelize = new Sequelize({
     underscored: true,
 }});
 
-
-
 const User = sequelize.define('user', {
-  email: Sequelize.STRING,
-  password: Sequelize.STRING,
-  current_weight: Sequelize.INTEGER,
-  goal_weight:Sequelize.INTEGER,
-  calorie_intake: Sequelize.INTEGER
+  email: {
+    type: Sequelize.STRING,
+    allowNull: {
+      args: false,
+      msg: 'email is required'
+    },
+    unique: {
+      args: true,
+      msg: 'email must be unique'
+    },
+    validate: {
+      isEmail: {
+        args: true,
+        msg: 'email format is invalid'
+      }
+    }
+  },
+  password: {
+    type: Sequelize.STRING,
+    allowNull: {
+      args: false,
+      msg: 'password is required'
+    }
+  },
+  current_weight: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0
+  },
+  goal_weight: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0
+  },
+  calorie_intake: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0
+  }
 });
 
 const Entry = sequelize.define('entry', {
@@ -27,7 +57,7 @@ const Entry = sequelize.define('entry', {
     type: Sequelize.DATEONLY,
     defaultValue: Sequelize.NOW
   }
-})
+});
 
 
 const Food = sequelize.define('food', {
@@ -48,7 +78,10 @@ User.hasMany(Entry, {onDelete: 'cascade'});
 Entry.hasMany(Food, {onDelete: 'cascade'});
 Entry.hasMany(Exercise, {onDelete:'cascade'});
 
-
+User.beforeCreate(async (user, options) => {
+  const hashedPassword = await bcrypt.hash(user.password, 12);
+  user.password = hashedPassword;
+});
 
 module.exports = {
   sequelize,

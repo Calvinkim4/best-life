@@ -14,14 +14,14 @@ class Stats extends React.Component{
   }
 
   async componentDidMount() {
-    const user = await getUser(1);
+    const user = await getUser(this.props.userId);
     this.setState({
       user: user
     });
   };
 
   showModal = async (event) => {
-    const id = 1;
+    const id = this.props.userId;
     const user = await getUser(id);
 
     this.setState({
@@ -83,7 +83,7 @@ class Stats extends React.Component{
                   <input type='text' name='goal_weight' placeholder={this.state.updatedUser.goal_weight}  onChange={ this.onUserFormChange }/>
                 </label>
                 <label htmlFor='calorie-limit'>
-                  <input type='text' name='calorie_limit' placeholder={this.state.updatedUser.calorie_intake}  onChange={ this.onUserFormChange }/>
+                  <input type='text' name='calorie_intake' placeholder={this.state.updatedUser.calorie_intake}  onChange={ this.onUserFormChange }/>
                 </label>
                 <button type='submit'>Update Stats</button>
               </form>

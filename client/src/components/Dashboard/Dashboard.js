@@ -1,10 +1,9 @@
-import React from 'react';
-import JournalEntry from '../JournalEntry/JournalEntry'
-import NewJournalEntry from '../NewJournalEntry/NewJournalEntry'
-import Stats from '../Stats/Stats'
-import './Dashboard.css'
+import React, { Component } from 'react';
+import JournalEntry from '../JournalEntry/JournalEntry';
+import Stats from '../Stats/Stats';
+import './Dashboard.css';
 
-class Dashboard extends React.Component{
+class Dashboard extends Component{
   constructor(){
     super();
     this.state={
@@ -18,7 +17,7 @@ class Dashboard extends React.Component{
     })
   }
 
-  submitNewEntry=() =>{
+  submitNewEntry= () =>{
     this.setState({
       addEntry: false
     })
@@ -28,9 +27,11 @@ class Dashboard extends React.Component{
     return(
       <div className='dashboard'>
         <h1> Dashboard</h1>
+        
         <div className='content-container'>
-          <Stats />
-          <JournalEntry addEntry={this.state.addEntry}/>
+          <Stats userId={this.props.userId} />
+          <JournalEntry userId={this.props.userId}/>
+
         </div>
       </div>
     )
