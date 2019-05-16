@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import './LoginForm.css'
 
 class LoginForm extends Component {
   constructor () {
@@ -65,14 +66,14 @@ class LoginForm extends Component {
         { errorMessage }
         <form className='login-form' onSubmit={this.handleSubmitForm}>
           <div>
-            <input type='text' name='email' onChange={this.handleTextInput} value={this.state.email} placeholder='Email'/>
+            <input className='login-input' type='text' name='email' onChange={this.handleTextInput} value={this.state.email} placeholder='Email'/>
           </div>
 
           <div>
-            <input type='password' name='password' onChange={this.handleTextInput} value={this.state.password} placeholder='Password'/>
+            <input className='login-input' type='password' name='password' onChange={this.handleTextInput} value={this.state.password} placeholder='Password'/>
           </div>
 
-          <button>Login</button>
+          <button className='login-btn'>Login</button>
         </form>
       </div>
     )
