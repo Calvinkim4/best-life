@@ -3,7 +3,6 @@ import Food from '../Food/Food';
 import Exercise from '../Exercise/Exercise';
 
 import { getAllEntries, createEntry, deleteEntry  } from '../../services/entryApi';
-
 import './JournalEntry.css';
 
 class JournalEntry extends React.Component{
