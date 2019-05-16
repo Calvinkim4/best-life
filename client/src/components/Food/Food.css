@@ -1,23 +1,25 @@
 .food-data{
   display: flex;
-  
+  justify-content: center;
+
 }
 
 .food-name-list{
   list-style: none;
-  text-align: left
+  text-align: center;
 }
 
 .food-cal-list{
   list-style: none;
-  text-align: left
+  text-align: center;
 }
+
 
 .update-btn{
   width: 80px;
   background-image:
     linear-gradient(
-      to right, 
+      to right,
       #4AC29A, rgb(121, 204, 189)
     );
   color: white;
@@ -30,10 +32,8 @@
 .update-btn:hover{
   background-image:
     linear-gradient(
-      to right, 
+      to right,
       red, #f06d06
     );
   transform: scale(1.2)
 }
-
-

@@ -25,7 +25,7 @@ class JournalEntry extends React.Component{
     this.setState({
       entries: entries
     });
-  
+
   }
 
   addEntry = async (event) => {
@@ -63,7 +63,7 @@ class JournalEntry extends React.Component{
           <Exercise exercises={entry.exercises} userId={1} entryId={id}/>
 
           </div>
-          <h3>Total calories for the day: {entry.total_amount}</h3>
+          <h3>Calorie Total: {entry.total_amount}</h3>
           <button value={entry.id} onClick={this.onDeleteClick}>Delete</button>
         </div>
       )
