@@ -10,5 +10,10 @@
 }
 .entry-container{
   display: flex;
-  justify-content: space-around
+  justify-content: space-between;
+  text-align: center;
+}
+
+h1{
+  text-align: center;
 }

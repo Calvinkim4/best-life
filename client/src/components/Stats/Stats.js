@@ -12,7 +12,7 @@ class Stats extends React.Component{
       show: false
     }
   }
-  
+
   async componentDidMount() {
     const user = await getUser(this.props.userId);
     this.setState({
@@ -24,7 +24,7 @@ class Stats extends React.Component{
     const id = this.props.userId;
     const user = await getUser(id);
 
-    this.setState({ 
+    this.setState({
       show: true,
       updatedUser: user,
       id: id
@@ -32,8 +32,8 @@ class Stats extends React.Component{
   };
 
   hideModal = () => {
-    this.setState({ 
-      show: false 
+    this.setState({
+      show: false
     });
   };
 
@@ -72,7 +72,7 @@ class Stats extends React.Component{
 
 
   render(){
-    const modal = (this.state.show && this.state.updatedUser) ? 
+    const modal = (this.state.show && this.state.updatedUser) ?
             <div className='modal'>
               <section className="modal-content">
               <form onSubmit={this.onUpdateClick}>
@@ -94,9 +94,9 @@ class Stats extends React.Component{
       <div className='stats'>
         <h1>My Stats</h1>
         <div>
-          <h3>Current Weight: {this.state.user.current_weight} lbs</h3>
-          <h3>Goal Weight: {this.state.user.goal_weight} lbs</h3>
-          <h3>Calorie Limit: {this.state.user.calorie_intake}</h3> 
+          <h3>Current Weight: <br/>{this.state.user.current_weight} lbs</h3>
+          <h3>Goal Weight: <br/>{this.state.user.goal_weight} lbs</h3>
+          <h3>Calorie Limit: <br/>{this.state.user.calorie_intake}</h3>
           <button onClick={this.showModal}>Update</button>
         </div>
         {modal}
