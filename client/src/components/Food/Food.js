@@ -1,5 +1,5 @@
 import React from 'react';
-import './Food.css'
+import './Food.css';
 
 import { createFood, getAllFood, getFood, updateFood, deleteFood } from '../../services/foodApi';
 

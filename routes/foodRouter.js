@@ -21,7 +21,7 @@ foodRouter.get('/:id', async (request, response) =>
 {
   try {
     const id = request.entryId;
-    const food = await Food.findAll({
+    const food = await Food.findOne({
       where: {
         entry_id: id,
         id: request.params.id
@@ -48,13 +48,17 @@ foodRouter.post('/', async (request, response) => {
 
 foodRouter.put('/:id', async (request, response) => {
   try {
-    const findFood = await Food.findByPk(request.params.id);
-    if (findFood) await findFood.update(request.body);
-    response.send({findFood});
+    const food = await Food.findByPk(request.params.id);
+    if (food) await food.update(request.body);
+    response.send({food});
   } catch(e) {
     console.log(e.message);
   }
 })
+
+
+
+// delete food entry
 
 
 foodRouter.delete('/:id', async (request, response) => {
