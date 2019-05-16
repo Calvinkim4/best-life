@@ -23,7 +23,7 @@
   
 }
 .back-image{
-  position:absolute;
+  position:fixed;
   margin-top: 100px;
   height: 100vh;
   width: 100vw;
@@ -53,4 +53,17 @@ body{
 
 .github-link:hover{
   color: yellow;
+}
+
+.signout-btn{
+  position: absolute;
+  border: none;
+  right: 100px;
+  top: 50px;
+  font-size: 15pt;
+  background: none;
+}
+
+.signout-btn:hover{
+  text-decoration-line: underline;
 }

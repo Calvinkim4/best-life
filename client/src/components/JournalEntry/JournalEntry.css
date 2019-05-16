@@ -1,7 +1,7 @@
 .journal-entry{
   background: white;
   border-radius: 15px;
-  box-shadow: 0 10px 16px -3px #777;
+  box-shadow: 0 10px 16px -3px rgb(42, 42, 43);
   min-height: 350px;
   width: 700px;
   text-align: center;
@@ -17,3 +17,39 @@
 h1{
   text-align: center;
 }
+
+
+.add-btn{
+  position: absolute;
+  border-radius: 50%;
+  border: none;
+  height: 55px;
+  width: 55px;
+  margin: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 40px;
+  background-image: 
+    linear-gradient( 
+      90.3deg,  
+      rgba(67,252,48,1) -1%, 
+      rgba(23,129,0,1) 103.4% 
+    );
+  right: 250px;
+  top: 235px;
+  box-shadow: 0 10px 16px -3px rgb(42, 42, 43);
+  transition: 1s;
+ z-index:1
+
+}
+
+.add-btn:hover{
+  background-image:
+    linear-gradient(
+      to right, 
+      #4AC29A, rgb(121, 204, 189)
+    );
+  
+    transform: scale(1.2)
+}
+

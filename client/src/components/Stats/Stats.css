@@ -1,4 +1,5 @@
 .stats{
+  position: fixed;
   width:15%;
   background-image:
     linear-gradient(
@@ -8,6 +9,15 @@
   color: white;
   border-radius: 0 15px 15px 0;
   margin-right: 100px;
-  box-shadow: 0 10px 16px -3px #777;
+  box-shadow: 0 10px 16px -3px rgb(42, 42, 43);
   padding: 20px;
+  left: 0;
+}
+
+.stat-title{
+  color: black
+}
+
+span{
+  color: white
 }

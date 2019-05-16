@@ -9,7 +9,8 @@ class Food extends React.Component{
     this.state = {
       foods: props.foods,
       show: false,
-      updatedFood: {}
+      updatedFood: {},
+      isHovered: false,
     }
   }
 
@@ -93,14 +94,34 @@ class Food extends React.Component{
     });
   };
 
+  showOptions = () =>{
+
+    this.setState({
+      isHovered: true
+    })
+  }
+
+  hideOptions = () =>{
+    this.setState({
+      isHovered: false
+    })
+  }
   render(){
     const allFoods = this.state.foods.map(food =>{
+      const buttons = this.state.isHovered ?
+      <div>
+        <button value={food.id} onClick={this.showModal}>Update</button> 
+        <button value={food.id} onClick={this.onDeleteClick}>Delete</button>
+      </div>
+       : null;
       return (
-        <div key={food.id}>
-          <li className='food-name' value={food.id}>{food.name}</li>
-          <li className='food-cal'  value={food.id} >{food.total_calories}</li>
-          <button value={food.id} onClick={this.showModal}>Update</button>
-          <button value={food.id} onClick={this.onDeleteClick}>Delete</button>
+        <div key={food.id} className='food-box' onMouseOver={this.showOptions} onMouseLeave={this.hideOptions}>
+          <div className='food-cal-name' >
+            <li className='food-list-item food-name' value={food.id}>{food.name}</li>
+            <li className='food-list-item food-cal'  value={food.id} >{food.total_calories}</li>
+          </div>
+          {buttons}
+      
         </div>
       )
     })
@@ -131,10 +152,10 @@ class Food extends React.Component{
         <div>
           <form onSubmit={this.onFoodFormSubmit}>
             <label htmlFor='food'>
-              <input type='text' name='name' placeholder='food' onChange={ this.onFoodFormChange }/>
+              <input type='text' name='name' placeholder='food' onChange={ this.onFoodFormChange } required />
             </label>
             <label htmlFor='calories'>
-              <input type='text' name='calories' placeholder='calories' onChange={ this.onFoodFormChange }/>
+              <input type='text' name='calories' placeholder='calories' onChange={ this.onFoodFormChange } required />
             </label>
             <button type='submit'>Add Food</button>
           </form>

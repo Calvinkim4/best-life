@@ -37,3 +37,19 @@
     );
   transform: scale(1.2)
 }
+
+.food-cal-name{
+  display: flex;
+}
+
+.food-cal{
+  margin-left: 20px;
+}
+
+.food-list-item{
+  margin-top: 10px;
+}
+
+.food-box{
+  border: red;
+}

@@ -79,7 +79,7 @@ class App extends Component {
 
           { isSignedIn &&
             <div>
-               <button onClick={this.signOut}> Sign out</button>
+               <button className='signout-btn' onClick={this.signOut}> Sign out</button>
               <Dashboard userId={this.state.user.id}/>
             </div>
           }

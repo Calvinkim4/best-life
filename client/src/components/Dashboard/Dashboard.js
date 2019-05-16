@@ -26,7 +26,7 @@ class Dashboard extends Component{
   render(){
     return(
       <div className='dashboard'>
-        <h1> Dashboard</h1>
+        <h2> Dashboard</h2>
         
         <div className='content-container'>
           <Stats userId={this.props.userId} />
