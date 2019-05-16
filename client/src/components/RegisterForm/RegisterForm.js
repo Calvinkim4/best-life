@@ -1,39 +1,33 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
-class LoginForm extends Component {
+class SignUpForm extends Component {
   constructor () {
     super();
+
     this.state = {
       email: '',
       password: '',
       showError: false
     }
-
   }
 
   handleSubmitForm = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     const { email, password } = this.state;
-    const { handleLogin } = this.props;
-
-    this.setState({ 
-      showError: false 
-    })
+    const { handleSignUp } = this.props;
 
     try {
-      await handleLogin({ 
+      await handleSignUp({
         email, password
       })
     } catch (e) {
-      this.setState({ 
-        showError: true 
-      })
+      console.log(e.message)
     }
   }
 
-  handleTextInput = async (event) => {
+  handleTextInput = (event) => {
     const fieldName = event.target.name;
     const value = event.target.value;
 
@@ -51,7 +45,7 @@ class LoginForm extends Component {
     if (showError) {
       errorMessage = (
         <div className='error-message'>
-          <span>Incorrect credentials</span>
+          <span>An error occured, please try again</span>
         </div>
       )
     }
@@ -64,6 +58,7 @@ class LoginForm extends Component {
       <div>
         { errorMessage }
         <form className='login-form' onSubmit={this.handleSubmitForm}>
+
           <div>
             <input type='text' name='email' onChange={this.handleTextInput} value={this.state.email} placeholder='Email'/>
           </div>
@@ -72,11 +67,11 @@ class LoginForm extends Component {
             <input type='password' name='password' onChange={this.handleTextInput} value={this.state.password} placeholder='Password'/>
           </div>
 
-          <button>Login</button>
+          <button>Sign Up</button>
         </form>
       </div>
     )
   }
 }
 
-export default LoginForm;
+export default SignUpForm;
