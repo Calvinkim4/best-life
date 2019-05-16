@@ -12,8 +12,8 @@ class JournalEntry extends React.Component{
     super();
     this.state = {
       entries: [],
-      foods: [],
-      exercises: [],
+      foodCalories: [],
+      exerciseCalories: [],
       calorie_amount: 0
     }
   }
@@ -25,7 +25,7 @@ class JournalEntry extends React.Component{
     this.setState({
       entries: entries
     });
-  
+    console.log(entries);
   }
 
   addEntry = async (event) => {
@@ -51,7 +51,6 @@ class JournalEntry extends React.Component{
   }
 
   render(){
-
 
     const allEntries = this.state.entries ? this.state.entries.map((entry) => {
       let id = entry.id;

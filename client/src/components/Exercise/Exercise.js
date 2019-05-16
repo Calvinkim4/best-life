@@ -26,7 +26,7 @@ class Exercise extends React.Component{
     newState[name] = value
 
     this.setState(newState)
-
+    
   }
 
   onExerciseFormSubmit = async (event) => {
@@ -42,6 +42,7 @@ class Exercise extends React.Component{
       this.setState({
         exercises: allExercises
       })
+      
 
   }
 
