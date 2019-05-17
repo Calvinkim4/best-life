@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const URL = 'http://localhost:3015';
+const URL = process.env.REACT_APP_BASE_URL;
 
 const api = axios.create({
     baseURL: `${URL}`
-  })
+})
 
 
 export const createUser = async (data) => {
