@@ -60,15 +60,15 @@ class JournalEntry extends React.Component{
           <Exercise exercises={entry.exercises} userId={this.state.userId} entryId={id}/>
 
           </div>
-          <h3>Calorie Total: {entry.total_amount}</h3>
-          <button value={entry.id} onClick={this.onDeleteClick}>Delete</button>
+          {/* <h3>Calorie Total: {entry.total_amount}</h3> */}
+          <button className='login-btn' value={entry.id} onClick={this.onDeleteClick}>Delete</button>
         </div>
       )
     }): null;
 
     return(
       <div>
-        <button onClick={this.addEntry}>Add Entry</button>
+        <button className='add-btn' onClick={this.addEntry}>+</button>
         {allEntries}
       </div>
     )

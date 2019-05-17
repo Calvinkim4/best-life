@@ -9,7 +9,8 @@ class Exercise extends React.Component{
     this.state = {
       exercises: props.exercises,
       show: false,
-      updatedExercise: {}
+      updatedExercise: {},
+      isHovered: false
     }
   }
 
@@ -92,14 +93,33 @@ class Exercise extends React.Component{
     });
   };
 
+  showOptions = () =>{
+
+    this.setState({
+      isHovered: true
+    })
+  }
+
+  hideOptions = () =>{
+    this.setState({
+      isHovered: false
+    })
+  }
   render(){
     const allExercises = this.state.exercises.map(exercise =>{
+      const buttons = this.state.isHovered ?
+      <div>
+        <button value={exercise.id} onClick={this.showModal}>Update</button>
+        <button value={exercise.id} onClick={this.onDeleteClick}>Delete</button>
+      </div>
+      : null;
       return (
-        <div key={exercise.id}>
-          <li className='exercise-name' value={exercise.id}>{exercise.name}</li>
-          <li className='exercise-cal'  value={exercise.id} >{exercise.total_calories}</li>
-          <button value={exercise.id} onClick={this.showModal}>Update</button>
-          <button value={exercise.id} onClick={this.onDeleteClick}>Delete</button>
+        <div key={exercise.id} className='food-box' onMouseOver={this.showOptions} onMouseLeave={this.hideOptions}>
+          <div className='food-cal-name'>
+            <li className='food-list-item exercise-name' value={exercise.id}>{exercise.name}</li>
+            <li className='food-list-item exercise-cal food-cal'  value={exercise.id} >{exercise.total_calories}</li>
+          </div>
+          {buttons}
         </div>
       ) 
     })
@@ -132,10 +152,10 @@ class Exercise extends React.Component{
         <div>
             <form onSubmit={this.onExerciseFormSubmit}>
               <label htmlFor='food'>
-                <input type='text' name='name' placeholder='exercise' onChange={ this.onExerciseFormChange }/>
+                <input type='text' name='name' placeholder='exercise' onChange={ this.onExerciseFormChange } required />
               </label>
               <label htmlFor='calories'>
-                <input type='text' name='calories' placeholder='calories' onChange={ this.onExerciseFormChange }/>
+                <input type='text' name='calories' placeholder='calories' onChange={ this.onExerciseFormChange } required />
               </label>
               <button type='submit'>Add Exercise</button>
             </form>

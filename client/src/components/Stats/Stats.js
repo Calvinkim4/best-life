@@ -94,10 +94,10 @@ class Stats extends React.Component{
       <div className='stats'>
         <h1>My Stats</h1>
         <div>
-          <h3>Current Weight: <br/>{this.state.user.current_weight} lbs</h3>
-          <h3>Goal Weight: <br/>{this.state.user.goal_weight} lbs</h3>
-          <h3>Calorie Limit: <br/>{this.state.user.calorie_intake}</h3>
-          <button onClick={this.showModal}>Update</button>
+          <h2 className='stat-title'>Current Weight <br/><span>{this.state.user.current_weight} </span>lbs</h2>
+          <h2 className='stat-title'>Goal Weight <br/><span>{this.state.user.goal_weight} </span>lbs</h2>
+          <h2 className='stat-title'>Calorie Limit <br/><span>{this.state.user.calorie_intake}</span></h2>
+          <button className='login-btn' onClick={this.showModal}>Update</button>
         </div>
         {modal}
       </div>
