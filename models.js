@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const bcrypt = require('bcrypt');
 
-const sequelize = new Sequelize({
+const sequelize = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost:5432/best_life_db', {
   database: 'best_life_db',
   dialect: 'postgres',
   operatorsAliases: false,
