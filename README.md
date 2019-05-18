@@ -4,6 +4,8 @@
 
 http://best-l-i-f-e.surge.sh/
 
+![alt text](wireframes/screenshot.png "screenshot")
+
 # Project Description
 -A fitness application to show the users daily calorie intake and log food eaten and weight lost/gained
 Since there can be many functionality that can be added, we are going to focus on mvp using the moscow method.  <br />
